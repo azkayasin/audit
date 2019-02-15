@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
 <head>
   <title>Laravel - Dynamically Add or Remove input fields using JQuery</title>

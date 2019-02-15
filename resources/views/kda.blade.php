@@ -5,6 +5,10 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
+    @include('admin.template.header')
+
+    <!-- Left side column. contains the logo and sidebar -->
+    {{-- @include('admin.template.sidebar-left') --}}
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -37,6 +41,8 @@
                       <th>no</th>
                       <th>nama kda</th>
                       <th>Jenis Kda</th>
+                      <th>Temuan</th>
+                      <th>Edit</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
@@ -46,25 +52,115 @@
                       <td>{{ $loop->iteration }}</td>
                       <td>{{ $kda->nama}}-{{ $kda->tanggal}}</td>
                       <td>{{ $kda->jenis}}</td>
-                      <td><a href="{{ url('pdf/'.$kda->id_kda) }}"><button>Download</button></a> </td>
-                    </tr>
-                    @endforeach
-                  </tfoot>
-                </table>
-              </div>
-              <!-- /.box-body -->
-            </div>
-            <!-- /.box -->
-          </div>
-          <!-- /.col -->
+                      <td><button class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-temuan" onclick="temuanupdate('{{ $kda->id_kda }}')">lihat</button></td>
+                      <td><button class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit" onclick="submitUpdate('{{ $kda->id_kda }}')">Edit</button></td>
+{{--                       <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" data-whatever="{{ $kda->id_kda}}">edit
+</button></td> --}}
+<td><a href="{{ url('pdf/'.$kda->id_kda) }}"><button>Download</button></a> </td>
+</tr>
+@endforeach
+</tfoot>
+</table>
+</div>
+<!-- /.box-body -->
+</div>
+<!-- /.box -->
+</div>
+<!-- /.col -->
+</div>
+<!-- /.row -->
+</section>
+<!-- /.content -->
+</div>
+
+<div class="modal fade" id="modal-temuan">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Temuan</h4>
+          <div id="test"></div>
         </div>
-        <!-- /.row -->
-      </section>
-      <!-- /.content -->
+        <div class="modal-body">
+          <form action="{{url('/kda/update')}}" method="POST" id="tambah_kda" enctype="multipart/form-data">
+            {{csrf_field()}}
+            @php
+            $i=0;
+            @endphp
+
+            <input type="text" name="id" placeholder="masuk keterangan" class="form-control name_list"/>
+            <input type="text" name="name" placeholder="Enter your Name" class="form-control name_list" />
+            <input type="text" name="keterangan" placeholder="masuk keterangan" class="form-control name_list"/>
+            <input type="text" name="kda_id" placeholder="masuk keterangan" class="form-control name_list"/>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+          </form>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
     </div>
-    <!-- /.content-wrapper -->
-    @include('admin.template.footer')
-    <!-- /.control-sidebar -->
+    <!-- /.modal -->
+  </div>
+  <!-- modal temuan end -->
+
+
+  <div class="modal fade" id="modal-edit">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Edit</h4>
+            <div id="test"></div>
+          </div>
+          <div class="modal-body">
+            <form action="{{url('/kda/update')}}" method="POST" id="tambah_kda" enctype="multipart/form-data">
+              {{csrf_field()}}
+              <input type="hidden" id="id" name="id">
+              <div class="form-group has-feedback">
+                <input type="text" class="form-control" id="unit" name="unit" value="{{old('unit')}}" placeholder="Nama unit" required>
+                @if ($errors->has('unit'))
+                <div class="alert alert-danger">
+                  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> {{ $errors->first('unit') }}</div>
+                  @endif
+                </div>
+                <div class="form-group has-feedback">
+                  <input type="text" class="form-control" id="jenis" name="jenis" value="{{old('jenis')}}" placeholder="jenis" required>
+                  @if ($errors->has('jenis'))
+                  <div class="alert alert-danger">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> {{ $errors->first('jenis') }}</div>
+                    @endif
+                  </div>
+                  <div class="form-group has-feedback">
+                    <input type="text" class="form-control" id="datetimepicker" name="tanggal" value="{{old('tanggal')}}" placeholder="Tanggal" required>
+                    @if ($errors->has('tanggal'))
+                    <div class="alert alert-danger">
+                      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> {{ $errors->first('tanggal') }}</div>
+                      @endif
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.modal-content -->
+              </div>
+              <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+          </div>
+          <!-- /.content-wrapper -->
+          @include('admin.template.footer')
+
+          <!-- Control Sidebar -->
+          @include('admin.template.sidebar-right')
+          <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
    immediately after the control sidebar -->
    <div class="control-sidebar-bg"></div>
@@ -85,6 +181,78 @@
       'autoWidth'   : false
     })
   })
+</script>
+<script>
+  $(function () {
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+      increaseArea: '20%'
+    });
+  });
+  $(function () {
+    $('#datetimepicker1').datepicker({
+      format: 'yyyy-mm-dd',
+      startView: 2
+    });
+  });
+  $(function () {
+    $('#datetimepicker').datepicker({
+      format: 'yyyy-mm-dd',
+      startView: 2
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+
+    submitForm = function(){
+      $('#tambah_kda').submit();
+    }
+    submitUpdate = function(id){
+      $.ajax({
+        url: '/kda/data',
+        type: 'POST',
+        data: {
+          '_token': "{{ csrf_token() }}",
+          'id' : id
+        },
+        error: function() {
+          console.log('Error');
+        },
+        dataType: 'json',
+        success: function(data) {
+          console.log(data);
+          $('#id').val(data.id_kda);
+          $('#unit').val(data.unit);
+          $('#jenis').val(data.jenis);
+          $('#datetimepicker').val(data.tanggal);
+        }
+      });
+    }
+    temuanupdate = function(id){
+      $.ajax({
+        url: '/kda/temuan',
+        type: 'POST',
+        data: {
+          '_token': "{{ csrf_token() }}",
+          'id' : id
+        },
+        error: function() {
+          console.log('Error');
+        },
+        dataType: 'json',
+        success: function(data1) {
+          console.log(data1);
+          console.log(data1.name);
+          $('#id').val(data.id);
+          $('#name').val(data.name);
+          $('#keterangan').val(data.keterangan);
+          $('#kda_id').val(data.kda_id);
+        }
+      });
+    }
+  });     
 </script>
 </body>
 </html>

@@ -12,11 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+	return view('auth.login');
 });
 
 Auth::routes();
-
+Route::get('/data','admincontroller@datamaster')->name('datamaster');
 Route::get("addmore","temuanController@addMore");
 Route::post("addmore","temuanController@addMorePost");
 Route::get("tambah","temuanController@tambah");
@@ -30,6 +30,19 @@ Route::get('pdf/{id}',  'temuanController@buatpdf');
 Route::get('/kda', 'kdacontroller@index');
 Route::get('/pilihkda', 'kdacontroller@pilih');
 Route::get('pilihkda/{id}', 'kdacontroller@formkda');
+Route::get('/bulan', 'cobacontroller@bulan');
+
+Route::post('/kda/update', 'cobacontroller@updatekda');
+Route::post('/kda/data', 'cobacontroller@getkda');
+Route::post('/kda/temuan', 'cobacontroller@gettemuan');
+Route::get('/kda/coba/{id}', 'cobacontroller@coba');
+
+Route::group(['prefix' => 'laravel-crud-search-sort-ajax-modal-form'], function () {
+	Route::get('/', 'Crud5Controller@index');
+	Route::match(['get', 'post'], 'create', 'Crud5Controller@create');
+	Route::match(['get', 'put'], 'update/{id}', 'Crud5Controller@update');
+	Route::delete('delete/{id}', 'Crud5Controller@delete');
+});
 
 
 Route::get('/login', 'AuthController@showLogin')->name('login')->middleware('guest');
@@ -41,7 +54,6 @@ Route::get('/hak','AuthController@hak')->name('hak');
 Route::group(['middleware' => 'admin'], function () {
 	Route::get('/admin','AuthController@home')->name('home1');
 	Route::get('/dashboard','AuthController@dashboard')->name('dashboard');
-	Route::get('/data','admincontroller@datamaster')->name('datamaster');
 	Route::get('/uang','admincontroller@uang')->name('uang');
 });
 

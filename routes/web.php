@@ -30,7 +30,9 @@ Route::get('pdf/{id}',  'temuanController@buatpdf');
 Route::get('/kda', 'kdacontroller@index');
 Route::get('/pilihkda', 'kdacontroller@pilih');
 Route::get('pilihkda/{id}', 'kdacontroller@formkda');
-Route::get('/bulan', 'cobacontroller@bulan');
+
+Route::get('/temuan', 'cobacontroller@bulan');
+Route::get('/temuan/update', 'cobacontroller@updatetemuan');
 
 Route::post('/kda/update', 'cobacontroller@updatekda');
 Route::post('/kda/data', 'cobacontroller@getkda');

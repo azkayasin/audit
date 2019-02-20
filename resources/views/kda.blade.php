@@ -77,25 +77,23 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="temuanclose()">
           <span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">Temuan</h4>
           <div id="test"></div>
         </div>
         <div class="modal-body">
-          <form action="{{url('/kda/update')}}" method="POST" id="tambah_kda" enctype="multipart/form-data">
-            {{csrf_field()}}
-            @php
-            $i=0;
-            @endphp
+          <form action="{{url('/temuan/update')}}" method="get" id="tambah_kda" enctype="multipart/form-data">
+            <div class="temuan" id="temuan" name="temuan" >
 
-            <input type="text" name="id" placeholder="masuk keterangan" class="form-control name_list"/>
+            </div>
+            {{-- <input type="text" name="id" placeholder="masuk keterangan" class="form-control name_list"/>
             <input type="text" name="name" placeholder="Enter your Name" class="form-control name_list" />
             <input type="text" name="keterangan" placeholder="masuk keterangan" class="form-control name_list"/>
-            <input type="text" name="kda_id" placeholder="masuk keterangan" class="form-control name_list"/>
+            <input type="text" name="kda_id" placeholder="masuk keterangan" class="form-control name_list"/> --}}
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-default pull-left" data-dismiss="modal" onclick="temuanclose()" >Close</button>
               <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
           </form>
@@ -230,6 +228,7 @@
         }
       });
     }
+    
     temuanupdate = function(id){
       $.ajax({
         url: '/kda/temuan',
@@ -243,15 +242,51 @@
         },
         dataType: 'json',
         success: function(data1) {
+
           console.log(data1);
-          console.log(data1.name);
-          $('#id').val(data.id);
-          $('#name').val(data.name);
-          $('#keterangan').val(data.keterangan);
-          $('#kda_id').val(data.kda_id);
+          var jumlah = data1.length;
+          console.log(jumlah);
+          var temuansemua = '';
+
+          //var data1 = $.parseJSON(data1);
+          for (var i = 0; i < jumlah; i++)
+          {
+            console.log (data1[i]['name']);
+            console.log (data1[i]['keterangan']);
+            var nama = data1[i]['name'];
+            var keterangan = data1[i]['keterangan'];
+            var status = data1[i]['status'];
+            var id = data1[i]['id'];
+
+            if (status) {
+              temuansemua = 
+            `<input type="text" name="name[${i}]" placeholder="Enter your Name" class="form-control name_list" value= "${nama}" />
+            <input type="text" name="keterangan[${i}]" placeholder="masukkan keterangan" class="form-control name_list" value= "${keterangan}" /> `;
+             $("#temuan").append(temuansemua);
+            }
+            else
+            {
+              temuansemua= 
+              `<input type="text" name="name[${i}]" placeholder="Enter your Name" class="form-control name_list" value= "${nama}" />
+            <input type="text" name="keterangan[${i}]" placeholder="masukkan keterangan" class="form-control name_list" value= "${keterangan}" /> 
+              <input type="checkbox" name="checkbox[]" data-id="${id}" value="${id}" id="checkbox[]">`;
+              $("#temuan").append(temuansemua);
+            }
+          }
+          
+          
+          $('#id').val(data1.id);
+          $('#name').val(data1.name);
+          $('#keterangan').val(data1.keterangan);
+          $('#kda_id').val(data1.kda_id);
         }
       });
     }
+
+    temuanclose = function(){
+      $("#temuan").empty();
+    }
+
   });     
 </script>
 </body>

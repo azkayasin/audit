@@ -18,6 +18,7 @@ class CreateTemuansTable extends Migration
             $table->string('name');
             $table->integer('kda_id');
             $table->string('keterangan');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

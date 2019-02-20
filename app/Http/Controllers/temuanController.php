@@ -76,7 +76,6 @@ class temuanController extends Controller
     public function tambahpost(Request $request)
     {
         $input = $request->all();
-
             //print_r($input);
         $rules = [];
 
@@ -103,7 +102,7 @@ class temuanController extends Controller
 
                 $temuan= new temuan;        
                 $temuan->name = $input['name'][$i];
-                $temuan->kda_id= $kda->id;
+                $temuan->kda_id= $kda->id_kda;
                 $temuan->keterangan= $input['keterangan'][$i];
                 $temuan->save();  
             }

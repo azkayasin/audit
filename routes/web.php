@@ -16,16 +16,30 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+//summernote form 
+Route::view('/summernote','summernote');
+ 
+//summernote store route
+Route::post('/summernote','SummernoteController@store')->name('summernotePersist');
+ 
+//summernote display route
+Route::get('/summernote_display','SummernoteController@show')->name('summernoteDispay');
+
+//login dulu
 Route::get('/data','admincontroller@datamaster')->name('datamaster');
+
+
+//contoh
 Route::get("addmore","temuanController@addMore");
 Route::post("addmore","temuanController@addMorePost");
+
 Route::get("tambah","temuanController@tambah");
 Route::post("tambah","temuanController@tambahpost");
 Route::post("tambahkda","temuanController@tambahkda");
 
+//Bisa
 Route::post('/get/child', 'admincontroller@getChild');
 Route::get('/tables', 'admincontroller@tables');
-
 Route::get('pdf/{id}',  'temuanController@buatpdf');
 Route::get('/kda', 'kdacontroller@index');
 Route::get('/pilihkda', 'kdacontroller@pilih');
@@ -49,8 +63,8 @@ Route::group(['prefix' => 'laravel-crud-search-sort-ajax-modal-form'], function 
 
 Route::get('/login', 'AuthController@showLogin')->name('login')->middleware('guest');
 Route::post('/login', 'AuthController@login');
-// Route::get('/register', 'AuthController@showRegister')->name('register')->middleware('guest');
-// Route::post('/register', 'AuthController@register');
+Route::get('/register', 'AuthController@showRegister')->name('register')->middleware('guest');
+Route::post('/register', 'AuthController@register');
 Route::post('/logout', 'AuthController@logout')->name('logout');
 Route::get('/hak','AuthController@hak')->name('hak');
 Route::group(['middleware' => 'admin'], function () {

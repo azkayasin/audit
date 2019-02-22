@@ -10,5 +10,5 @@ use Illuminate\Database\Eloquent\Model;
 class Temuan extends Model
 {
     public $table = "temuan";
-    public $fillable = ['name','id_kda','keterangan','status'];
+    public $fillable = ['kwitansi','nominal','keterangan','id_kda','status'];
 }

@@ -51,9 +51,15 @@
                     <tr>
                       <td>{{ $loop->iteration }}</td>
                       <td>{{ $kda->nama}}-{{ $kda->tanggal}}</td>
-                      <td>{{ $kda->jenis}}</td>
+                      @if ($kda->jenis == 1)
+                      <td>KDA tanpa temuan</td>
+                      <td>Tidak ada temuan</td>
+                      <td><button class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit" onclick="submitUpdate('{{ $kda->id_kda }}')">Edit</button></td>
+                      @else
+                      <td>KDA dengan temuan</td>
                       <td><button class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-temuan" onclick="temuanupdate('{{ $kda->id_kda }}')">lihat</button></td>
                       <td><button class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit" onclick="submitUpdate('{{ $kda->id_kda }}')">Edit</button></td>
+                      @endif
 {{--                       <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" data-whatever="{{ $kda->id_kda}}">edit
 </button></td> --}}
 <td><a href="{{ url('pdf/'.$kda->id_kda) }}"><button>Download</button></a> </td>
@@ -84,7 +90,20 @@
         </div>
         <div class="modal-body">
           <form action="{{url('/temuan/update')}}" method="get" id="tambah_kda" enctype="multipart/form-data">
-            <div class="temuan" id="temuan" name="temuan" >
+            {{-- <div class="temuan" id="temuan" name="temuan" > --}}
+              <div>
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>Kwitansi</th>
+                    <th>Nominal</th>
+                    <th>Keterangan</th>
+                    <th>Konfirmasi</th>
+                  </tr>
+                  <tbody id="temuan">
+                  </tbody>
+                </thead>
+              </table>
 
             </div>
             {{-- <input type="text" name="id" placeholder="masuk keterangan" class="form-control name_list"/>
@@ -251,34 +270,43 @@
           //var data1 = $.parseJSON(data1);
           for (var i = 0; i < jumlah; i++)
           {
-            console.log (data1[i]['name']);
+            console.log (data1[i]['kwitansi']);
             console.log (data1[i]['keterangan']);
-            var nama = data1[i]['name'];
+            var kwitansi = data1[i]['kwitansi'];
+            var nominal = data1[i]['nominal'];
             var keterangan = data1[i]['keterangan'];
             var status = data1[i]['status'];
             var id = data1[i]['id'];
 
+            // if (status) {
+            //   temuansemua = 
+            // `<input type="text" name="kwitansi[${i}]" placeholder="Nomor kwitansi" class="form-control name_list" value= "${kwitansi}" />
+            // <input type="text" name="nominal[${i}]" placeholder="masukkan nominal" class="form-control name_list" value= "${nominal}" />
+            // <input type="text" name="keterangan[${i}]" placeholder="masukkan keterangan" class="form-control name_list" value= "${keterangan}" /> `;
+            //  $("#temuan").append(temuansemua);
+            // }
+            // else
+            // {
+            //   temuansemua= 
+            //   `<input type="text" name="kwitansi[${i}]" placeholder="Nomor kwitansi" class="form-control name_list" value= "${kwitansi}" />
+            // <input type="text" name="nominal[${i}]" placeholder="masukkan nominal" class="form-control name_list" value= "${nominal}" />
+            // <input type="text" name="keterangan[${i}]" placeholder="masukkan keterangan" class="form-control name_list" value= "${keterangan}" /> 
+            //   <input type="checkbox" name="checkbox[]" data-id="${id}" value="${id}" id="checkbox[]">`;
+            //   $("#temuan").append(temuansemua);
+            // }
+
             if (status) {
               temuansemua = 
-            `<input type="text" name="name[${i}]" placeholder="Enter your Name" class="form-control name_list" value= "${nama}" />
-            <input type="text" name="keterangan[${i}]" placeholder="masukkan keterangan" class="form-control name_list" value= "${keterangan}" /> `;
+            `<tr><td name="kwitansi[${i}]">${kwitansi}</td><td name="nominal[${i}]">${nominal}</td><td name="keterangan[${i}]">${keterangan}</td><td>Telah dikonfirmasi</td></tr>`;
              $("#temuan").append(temuansemua);
             }
             else
             {
               temuansemua= 
-              `<input type="text" name="name[${i}]" placeholder="Enter your Name" class="form-control name_list" value= "${nama}" />
-            <input type="text" name="keterangan[${i}]" placeholder="masukkan keterangan" class="form-control name_list" value= "${keterangan}" /> 
-              <input type="checkbox" name="checkbox[]" data-id="${id}" value="${id}" id="checkbox[]">`;
+              `<tr><td name="kwitansi[${i}]">${kwitansi}</td><td name="nominal[${i}]">${nominal}</td><td name="keterangan[${i}]">${keterangan}</td><td><input type="checkbox" name="checkbox[]" data-id="${id}" value="${id}" id="checkbox[]"></td></tr>`;
               $("#temuan").append(temuansemua);
             }
           }
-          
-          
-          $('#id').val(data1.id);
-          $('#name').val(data1.name);
-          $('#keterangan').val(data1.keterangan);
-          $('#kda_id').val(data1.kda_id);
         }
       });
     }

@@ -15,9 +15,10 @@ class CreateTemuansTable extends Migration
     {
         Schema::create('temuan', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->integer('kda_id');
+            $table->string('kwitansi');
             $table->string('keterangan');
+            $table->double('nominal');
+            $table->integer('kda_id');
             $table->boolean('status')->default(0);
             $table->timestamps();
         });

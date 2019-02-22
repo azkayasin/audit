@@ -11,7 +11,8 @@
 				<thead>
 					<tr>
 						<th>no</th>
-						<th>temuan</th>
+						<th>kwitansi</th>
+						<th>nominal</th>
 						<th>keterangan</th>
 						<th>id kda</th>
 						<th>Status</th>
@@ -22,7 +23,8 @@
 					@foreach ($temuan as $temuan)
 					<tr>
 						<td>{{ $loop->iteration }}</td>
-						<td>{{ $temuan->name}}</td>
+						<td>{{ $temuan->kwitansi}}</td>
+						<td>{{ $temuan->nominal}}</td>
 						<td>{{ $temuan->keterangan}}</td>
 						<td>{{ $temuan->kda_id}}</td>
 						@if ($temuan->status == 0)

@@ -29,41 +29,41 @@ class temuanController extends Controller
         return $pdf->download($nama.'.pdf');
     }
     
-    public function addMore()
-    {
-        return view("addMore");
-    }
+    // public function addMore()
+    // {
+    //     return view("addMore");
+    // }
 
 
-    public function addMorePost(Request $request)
-    {
-        $rules = [];
+    // public function addMorePost(Request $request)
+    // {
+    //     $rules = [];
 
 
-        foreach($request->input('name') as $key => $value) {
-            $rules["unit.{$key}"] = 'required';
-            $rules["tanggal.{$key}"] = 'required';
-            $rules["name.{$key}"] = 'required';
-        }
+    //     foreach($request->input('name') as $key => $value) {
+    //         $rules["unit.{$key}"] = 'required';
+    //         $rules["tanggal.{$key}"] = 'required';
+    //         $rules["name.{$key}"] = 'required';
+    //     }
 
 
-        $validator = Validator::make($request->all(), $rules);
+    //     $validator = Validator::make($request->all(), $rules);
 
 
-        if ($validator->passes()) {
+    //     if ($validator->passes()) {
 
 
-            foreach($request->input('name') as $key => $value) {
-                TagList::create(['name'=>$value]);
-            }
+    //         foreach($request->input('name') as $key => $value) {
+    //             TagList::create(['name'=>$value]);
+    //         }
 
 
-            return response()->json(['success'=>'done']);
-        }
+    //         return response()->json(['success'=>'done']);
+    //     }
 
 
-        return response()->json(['error'=>$validator->errors()->all()]);
-    }
+    //     return response()->json(['error'=>$validator->errors()->all()]);
+    // }
 
     public function tambah()
     {
@@ -80,8 +80,9 @@ class temuanController extends Controller
         $rules = [];
 
 
-        foreach($request->input('name') as $key => $value) {
-            $rules["name.{$key}"] = 'required';
+        foreach($request->input('kwitansi') as $key => $value) {
+            $rules["kwitansi.{$key}"] = 'required';
+            $rules["nominal.{$key}"] = 'required';
             $rules["keterangan.{$key}"] = 'required';
         }
 
@@ -96,14 +97,15 @@ class temuanController extends Controller
             $kda->tanggal = $input['tanggal'][0];
             $kda->jenis = 2;
             $kda->save();
-            $jumlah = count($input['name']);
+            $jumlah = count($input['kwitansi']);
             for ($i=0; $i < $jumlah; ++$i) 
             {
 
                 $temuan= new temuan;        
-                $temuan->name = $input['name'][$i];
-                $temuan->kda_id= $kda->id_kda;
+                $temuan->kwitansi = $input['kwitansi'][$i];
+                $temuan->nominal= $input['nominal'][$i];
                 $temuan->keterangan= $input['keterangan'][$i];
+                $temuan->kda_id= $kda->id_kda;
                 $temuan->save();  
             }
             //return print_r($input);

@@ -2,8 +2,7 @@
 <html>
 <head>
     <title>produk PDF </title>
-    <link href=" {{ asset ('public bootstrap/css/
-bootstrap.min.css') }} "rel="stylesheet">
+    <link href=" {{ asset ('public bootstrap/css/bootstrap.min.css') }} "rel="stylesheet">
 </head>
 <body>
 <div class="panel panel - default">
@@ -22,7 +21,8 @@ bootstrap.min.css') }} "rel="stylesheet">
                   <thead>
                     <tr>
                       <th>no</th>
-                      <th>nama</th>
+                      <th>Kwitansi</th>
+                      <th>Nominal</th>
                       <th>keterangan</th>
                     </tr>
                   </thead>
@@ -30,7 +30,8 @@ bootstrap.min.css') }} "rel="stylesheet">
                     @foreach ($temuan as $data)
                     <tr>
                       <td>{{ $data->id}}</td>
-                      <td>{{ $data->name}}</td>
+                      <td>{{ $data->kwitansi}}</td>
+                      <td>{{ $data->nominal}}</td>
                       <td>{{ $data->keterangan}}</td>
                     </tr>
                     @endforeach

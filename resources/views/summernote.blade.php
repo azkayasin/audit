@@ -23,12 +23,33 @@
           <li class="active">Dashboard</li>
         </ol>
       </section>
-       <form action="{{route('summernotePersist')}}" method="POST">
+       {{-- <form action="{{route('summernotePersist')}}" method="POST">
         {{ csrf_field() }}
         <textarea name="summernoteInput" class="summernote"></textarea>
         <br>
         <button type="submit">Submit</button>
-    </form>
+    </form> --}}
+    <form class="form-horizontal" method="POST" action="{{route('summernotePersist')}}" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Tipe</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="tipe" class="form-control" placeholder="Tipe" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Konten</label>
+                    <div class="col-sm-10">
+                        <textarea id="konten_editor" name="summernoteInput" class="summernote"
+                                  placeholder="Konten"></textarea>
+                    </div>
+                </div>
+
+                <div class="box-footer text-right">
+                    <a href="{{URL::previous()}}" class="btn btn-default">Batal</a>
+                    <button type="submit" class="btn btn-danger">Simpan</button>
+                </div>
+            </form>
     </div>
           <!-- /.content-wrapper -->
           @include('admin.template.footer')
@@ -55,7 +76,10 @@
  
 <script>
         $(document).ready(function() {
-            $('.summernote').summernote();
+            $('.summernote').summernote({
+               tabsize: 2,
+                height: 400
+            });
         });
 </script>
 

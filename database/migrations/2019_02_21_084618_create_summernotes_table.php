@@ -15,6 +15,7 @@ class CreateSummernotesTable extends Migration
     {
         Schema::create('summernotes', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('tipe');
             $table->longText('content');
             $table->timestamps();
         });

@@ -33,16 +33,22 @@
               <div class="box-header">
                 <h3 class="box-title">Data Table With Full Features</h3>
               </div>
-                <p>
-                  Jenis KDA : 
-                <select id="table-filter">
+
+                  {{-- <select id="table-filter">
                 <option value="">All</option>
                 <option value="KDA dengan temuan">KDA dengan temuan</option>
                 <option value="KDA tanpa temuan">KDA tanpa temuan</option>
-                </select>
-                </p>
+                </select> --}}
               <!-- /.box-header -->
               <div class="box-body">
+                <p id="table-filter" style="display:none">
+                  Jenis KDA: 
+                  <select>
+                  <option value="">All</option>
+                  <option value="KDA dengan temuan">KDA dengan temuan</option>
+                  <option value="KDA tanpa temuan">KDA tanpa temuan</option>
+                  </select>
+                  </p>
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
@@ -206,11 +212,20 @@
  @include('admin.template.setting')
  <script>
   $(document).ready(function (){
-    var table = $('#example1').DataTable();
-    
-    $('#table-filter').on('change', function(){
-       table.search(this.value).draw();   
+    var table = $('#example1').DataTable({
+       dom: 'lr<"table-filter-container">tip',
+       initComplete: function(settings){
+          var api = new $.fn.dataTable.Api( settings );
+          $('.table-filter-container', api.table().container()).append(
+             $('#table-filter').detach().show()
+          );
+          
+          $('#table-filter select').on('change', function(){
+             table.search(this.value).draw();   
+          });       
+       }
     });
+    
 });
 </script>
 <script>
@@ -330,31 +345,6 @@
     }
 
   });     
-</script>
-<script type="text/javascript">
-  $(document).ready(function() {
-    // Setup - add a text input to each footer cell
-    $('#example1 tfoot th').each( function () {
-        var title = $(this).text();
-        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
-    } );
- 
-    // DataTable
-    var table = $('#example1').DataTable();
- 
-    // Apply the search
-    table.columns().every( function () {
-        var that = this;
- 
-        $( 'input', this.footer() ).on( 'keyup change', function () {
-            if ( that.search() !== this.value ) {
-                that
-                    .search( this.value )
-                    .draw();
-            }
-        } );
-    } );
-} );
 </script>
 
 </body>

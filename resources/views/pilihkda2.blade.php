@@ -39,13 +39,6 @@
           <ul></ul>
         </div>
         <div class="form-group">
-          {{-- <td><input type="text" name="unit[] list="unit" /></td> --}}
-          {{--         <td><input type="text" name="unit[]" placeholder="masukkan unit" list="unit" class="form-control name_list" /></td>
-          <datalist id="unit">
-            @foreach( $unit as $unit)
-            <option value="{{$unit->id}}">{{$unit->nama}}</option>
-            @endforeach
-          </datalist> --}}
           <select class="form-control select2" name="unit[]">
             <option></option>
             @foreach($unit as $unit)
@@ -54,6 +47,7 @@
           </select>  
         </div>
         <div class="form-group">
+          <td><input type="text" id="jenis_kda" name="jenis_kda" placeholder="Pilih jenis" class="form-control name_list" /></td>
           <td><input type="date" id="tanggal" name="tanggal[]" placeholder="Pilih tanggal" class="form-control name_list" /></td>  
         </div>
 
@@ -69,7 +63,7 @@
               <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>  
             </tr>  
           </table>  
-          <input type="button" name="submitkda1" id="submitkda1" class="btn btn-info" value="Submit" />  
+          <input type="button" name="submitkda" id="submitkda" class="btn btn-info" value="Submit" />  
         </div>
 
 
@@ -101,9 +95,10 @@
         </select>  
       </div>
       <div class="form-group">
+        <td><input type="text" id="jenis_kda2" name="jenis_kda" placeholder="Pilih jenis" class="form-control name_list" /></td>
         <td><input type="date" id="tanggal" name="tanggal[]" placeholder="Pilih tanggal" class="form-control name_list" /></td>  
       </div>
-      <input type="button" name="submitkda2" id="submitkda2" class="btn btn-info" value="Submit1" />
+      <input type="button" name="submitkda" id="submitkda" class="btn btn-info" value="Submit" />
     </form>  
   </div> 
 </div>
@@ -121,30 +116,73 @@
 </script>
 
 <script type="text/javascript">
+  var jenis_kda;
   $("#kda1").hide();
   $("#kda2").hide();
-  // function displayVals() {
-  //   var pilihan = $( "#pilihkda" ).val();
-  //   console.log(pilihan);
-  // }
-  // $( "select" ).change( displayVals );
-  // displayVals();
   $(document).ready(function(){
     document.getElementById('tanggal').valueAsDate = new Date();
     $("#submitpilih").click(function(){
       var pilihan = $( "#pilihkda" ).val();
       if (pilihan == 1) {
+        jenis_kda = 1 ;
+        $('#jenis_kda').val(pilihan);
         $("#kda1").show();
         $("#kda2").hide();
       }
       else
       {
+        jenis_kda = 2 ;
+        $('#jenis_kda2').val(pilihan);
         $("#kda2").show();
         $("#kda1").hide();
       }
       
     });
-  });s
+    $('#submitkda').click(function(){
+      if(jenis_kda == 1)
+          {
+              var postURL = "<?php echo url('tambahkda1'); ?>";
+              var datakda = $('#add_kda1').serialize();
+          }
+          else
+          {
+            var postURL = "<?php echo url('tambahkda2'); ?>";
+            var datakda = $('#add_kda2').serialize();
+          }
+     $.ajax({  
+      url:postURL,  
+      method:"POST",  
+      data:datakda,
+      type:'json',
+      success:function(data)  
+      {
+        if(data.error){
+          printErrorMsg(data.error);
+        }else{
+          i=1;
+          $('.dynamic-added').remove();
+          $('#add_kda1')[0].reset();
+          $(".print-success-msg").find("ul").html('');
+          $(".print-success-msg").css('display','block');
+          $(".print-error-msg").css('display','none');
+          $(".print-success-msg").find("ul").append('<li>Record Inserted Successfully.</li>');
+        }
+      }  
+    });  
+   });  
+
+
+    function printErrorMsg (msg) {
+     $(".print-error-msg").find("ul").html('');
+     $(".print-error-msg").css('display','block');
+     $(".print-success-msg").css('display','none');
+     $.each( msg, function( key, value ) {
+      $(".print-error-msg").find("ul").append('<li>'+value+'</li>');
+    });
+   }
+
+
+  });
 </script>
 <script type="text/javascript">
   $(document).ready(function(){      
@@ -244,24 +282,5 @@
 </script>
 
 <script src="adminlte/bower_components/select2/dist/js/select2.full.min.js"></script>
-<script>
-  // var e = document.getElementById("pilihkda");
-  // var pilihan = e.options[e.selectedIndex].value;
-  // var pilihan = $( "#pilihkda" ).val();
-  // console.log("hehe");
-  // console.log(pilihan);
-  // function displayVals() {
-  //   var pilihan = $( "#pilihkda" ).val();
-  //   console.log(pilihan);
-  //   // var link = "{{ url('pilihkda/" +pilihan;
-  //   // var link2 = link +"') }"+"}";
-  //   var link = "pilihkda/"+pilihan;
-  //   console.log(link);
-  //   // console.log(link2);
-  //   //$('#pilihan').attr("href",link)
-  // }
-  // $( "select" ).change( displayVals );
-  // displayVals();
-</script> 
 </body>
 </html>

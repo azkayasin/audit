@@ -34,8 +34,8 @@ Route::get("addmore","temuanController@addMore");
 Route::post("addmore","temuanController@addMorePost");
 
 Route::get("tambah","temuanController@tambah");
-Route::post("tambah","temuanController@tambahpost");
-Route::post("tambahkda","temuanController@tambahkda");
+Route::post("tambahkda1","temuanController@tambahkda1");
+Route::post("tambahkda2","temuanController@tambahkda2");
 
 //Bisa
 Route::post('/get/child', 'admincontroller@getChild');
@@ -67,6 +67,7 @@ Route::get('/register', 'AuthController@showRegister')->name('register')->middle
 Route::post('/register', 'AuthController@register');
 Route::post('/logout', 'AuthController@logout')->name('logout');
 Route::get('/hak','AuthController@hak')->name('hak');
+
 Route::group(['middleware' => 'admin'], function () {
 	Route::get('/admin','AuthController@home')->name('home1');
 	Route::get('/dashboard','AuthController@dashboard')->name('dashboard');

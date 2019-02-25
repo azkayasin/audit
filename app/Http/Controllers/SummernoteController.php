@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Summernote;
 use Illuminate\Http\Request;
+use DB;
 
 class SummernoteController extends Controller
 {
@@ -35,6 +36,7 @@ class SummernoteController extends Controller
      */
     public function store(Request $request)
     {
+        $tipe= $request->tipe;
         $detail=$request->summernoteInput;
         
         $dom = new \domdocument();
@@ -61,9 +63,10 @@ class SummernoteController extends Controller
         
         $detail = $dom->savehtml();
         $summernote = new Summernote;
+        $summernote->tipe = $tipe;
         $summernote->content = $detail;
         $summernote->save();
-        return view('summernote_display',compact('summernote'));
+        return redirect('/summernote_display');
     }
 
     /**
@@ -74,7 +77,9 @@ class SummernoteController extends Controller
      */
     public function show(Summernote $summernote)
     {
-        //
+        $summernote = DB::table('summernotes')->get();
+        //return $summernote;
+        return view('summernote_display',compact('summernote'));
     }
 
     /**

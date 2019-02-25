@@ -24,7 +24,36 @@
         </ol>
       </section>
       <div class="container">
-        {!! $summernote->content !!}
+        <ul>
+          @foreach( $summernote as $template)
+          <li>{{ $template->tipe }};</li>
+        </ul>
+        <div>
+          <form class="form-horizontal" method="POST" action="{{url('/admin/template/'.$template->id)}}"
+                  enctype="multipart/form-data">
+                {{ method_field('PUT') }}
+                {{ csrf_field() }}
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Tipe</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="tipe" class="form-control" placeholder="Tipe" value="{{ $template->tipe }}" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Konten</label>
+                    <div class="col-sm-10">
+                        <textarea id="konten_editor" name="konten" class="form-control summernote"
+                                  placeholder="Konten">{!! $template->content !!}</textarea>
+                    </div>
+                </div>
+
+                <div class="box-footer text-right">
+                    <a href="{{URL::previous()}}" class="btn btn-default">Batal</a>
+                    <button type="submit" class="btn btn-danger">Simpan</button>
+                </div>
+            </form>
+            @endforeach
+        </div>
       </div>
     </div>
     <!-- /.content-wrapper -->
@@ -53,11 +82,14 @@
 <script type="text/javascript">
    $(document).ready(function() {
             //initialize summernote
-            $('.summernote').summernote();
+            $('.summernote').summernote({
+               tabsize: 2,
+                height: 400
+            });
             //assign the variable passed from controller to a JavaScript variable.
-            var content = {!! json_encode($summernote->content) !!};
+            
             //set the content to summernote using `code` attribute.
-            $('.summernote').summernote('code', content);
+            //$('.summernote').summernote('code', content);
         });
 </script>
 </body>

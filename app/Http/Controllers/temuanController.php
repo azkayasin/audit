@@ -73,7 +73,7 @@ class temuanController extends Controller
     }
 
 
-    public function tambahpost(Request $request)
+    public function tambahkda1(Request $request)
     {
         $input = $request->all();
             //print_r($input);
@@ -125,13 +125,13 @@ class temuanController extends Controller
         // return response()->json(['error'=>$validator->errors()->all()]);
     }
 
-    public function tambahkda(Request $request)
+    public function tambahkda2(Request $request)
     {
         $input = $request->all();
         
             $kda= new kda;
             $kda->unit = $input['unit1'][0];
-            $kda->tanggal = $input['tanggal1'][0];
+            $kda->tanggal = $input['tanggal'][0];
             $kda->jenis = 1;
             $kda->save();
             return response()->json(['success'=>'done']);

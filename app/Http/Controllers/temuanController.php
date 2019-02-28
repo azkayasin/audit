@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\TagList;
 use App\Temuan;
 use App\kda;
+use App\kda_keterangan;
 use Validator;
 use DB;
 use PDF;
@@ -72,8 +73,20 @@ class temuanController extends Controller
         return view("tambah", compact('unit','unit1'));
     }
 
-
     public function tambahkda1(Request $request)
+    {
+        $input = $request->all();
+        
+            $kda= new kda;
+            $kda->unit = $input['unit'][0];
+            $kda->tanggal = $input['tanggal'][0];
+            $kda->jenis = 1;
+            $kda->save();
+            return response()->json(['success'=>'done']);
+        
+    }
+
+    public function tambahkda2(Request $request)
     {
         $input = $request->all();
             //print_r($input);
@@ -124,18 +137,28 @@ class temuanController extends Controller
 
         // return response()->json(['error'=>$validator->errors()->all()]);
     }
-
-    public function tambahkda2(Request $request)
+    public function tambahkda3(Request $request)
     {
         $input = $request->all();
         
             $kda= new kda;
-            $kda->unit = $input['unit1'][0];
-            $kda->tanggal = $input['tanggal'][0];
-            $kda->jenis = 1;
+            $kda->unit = $input['unit'];
+            $kda->tanggal = $input['tanggal'];
+            $kda->jenis = $input['jenis_kda3'];
             $kda->save();
+
+            $ket = new kda_keterangan;
+            $ket->kondisi = $input['kondisi'];
+            $ket->kesimpulan = $input['kesimpulan'];
+            $ket->saran = $input['saran'];
+            $ket->rekomendasi = $input['rekomendasi'];
+            $ket->tanggapan = $input['tanggapan'];
+            $ket->kda_id = $kda->id_kda;
+            $ket->save();
+
             return response()->json(['success'=>'done']);
         
     }
+
     
 }

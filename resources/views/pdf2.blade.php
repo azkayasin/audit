@@ -1,0 +1,2 @@
+{{$summernotes->tipe}}
+{!! $summernotes->content !!}

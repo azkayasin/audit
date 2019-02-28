@@ -20,8 +20,7 @@ class kdacontroller extends Controller
 	{
 
 		$unit = DB::table('unit')->get();
-        $unit1 = DB::table('unit')->get();
-        return view("pilihkda2", compact('unit','unit1'));
+        return view("pilihkda2", compact('unit'));
 
 	}
 

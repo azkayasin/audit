@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 //summernote form 
 Route::view('/summernote','summernote');
+Route::view('/summernote2','summernote2');
  
 //summernote store route
 Route::post('/summernote','SummernoteController@store')->name('summernotePersist');
@@ -36,21 +37,30 @@ Route::post("addmore","temuanController@addMorePost");
 Route::get("tambah","temuanController@tambah");
 Route::post("tambahkda1","temuanController@tambahkda1");
 Route::post("tambahkda2","temuanController@tambahkda2");
+Route::post("tambahkda3","temuanController@tambahkda3");
+Route::post("tambahkda4","temuanController@tambahkda4");
 
 //Bisa
 Route::post('/get/child', 'admincontroller@getChild');
 Route::get('/tables', 'admincontroller@tables');
-Route::get('pdf/{id}',  'temuanController@buatpdf');
+//Route::get('pdf/{id}',  'temuanController@buatpdf');
 Route::get('/kda', 'kdacontroller@index');
 Route::get('/pilihkda', 'kdacontroller@pilih');
 Route::get('pilihkda/{id}', 'kdacontroller@formkda');
 
+Route::get('pdf3',  'pdfcontroller@buatpdf3');
+Route::get('pdf/{id}',  'pdfcontrollerontroller@filepdf');
+Route::get('download',  'pdfcontroller@downloadkdatriwulan');
+Route::get('laporan',  'pdfcontroller@laporan2');
+
+
 Route::get('/temuan', 'cobacontroller@bulan');
 Route::get('/temuan/update', 'cobacontroller@updatetemuan');
-
-Route::post('/kda/update', 'cobacontroller@updatekda');
 Route::post('/kda/data', 'cobacontroller@getkda');
 Route::post('/kda/temuan', 'cobacontroller@gettemuan');
+Route::post('/kda/update', 'cobacontroller@updatekda');
+Route::post('/kda/keterangan', 'cobacontroller@getketerangan');
+Route::post('/keterangan/update', 'cobacontroller@updateketerangan');
 Route::get('/kda/coba/{id}', 'cobacontroller@coba');
 
 Route::group(['prefix' => 'laravel-crud-search-sort-ajax-modal-form'], function () {

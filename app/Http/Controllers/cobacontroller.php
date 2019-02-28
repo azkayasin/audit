@@ -11,6 +11,7 @@ use DB;
 use App\kda;
 use App\customer;
 use App\temuan;
+use App\kda_keterangan;
 
 class cobacontroller extends Controller
 {
@@ -58,6 +59,16 @@ class cobacontroller extends Controller
 		return redirect('/kda');
 
 	}
+	public function updateketerangan(Request $request)
+	{
+
+		$data = $request->all();
+		$kda = kda_keterangan::find($request->id);
+		//return ($data);
+		$kda->update($data, ['except'=>'_token']);
+		return redirect('/kda');
+
+	}
 	public function gettemuan(Request $request)
 	{
 		$id = $request->input('id');
@@ -65,6 +76,15 @@ class cobacontroller extends Controller
         //$kda = DB::table('kda')->whereIn('id_kda', $id)->get();
         //return ($kda);
 		return response()->json($temuan);
+	}
+	public function getketerangan(Request $request)
+	{
+		$id = $request->input('id');
+		//$keterangan = kda::find();
+		$keterangan = DB::table('kda_keterangan')->where('kda_id',$id)->first();
+        //$kda = DB::table('kda')->whereIn('id_kda', $id)->get();
+        //return ($keterangan);
+		return response()->json($keterangan);
 	}
 	public function updatetemuan(Request $request)
 	{

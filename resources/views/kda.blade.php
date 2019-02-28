@@ -37,8 +37,10 @@
                   Jenis KDA : 
                 <select id="table-filter">
                 <option value="">All</option>
-                <option value="KDA dengan temuan">KDA dengan temuan</option>
-                <option value="KDA tanpa temuan">KDA tanpa temuan</option>
+                <option>KDA dengan temuan</option>
+                <option>KDA tanpa temuan</option>
+                <option>KDA Unaudited</option>
+                <option>KDA tanpa pengajuan UMK</option>
                 </select>
                 </p>
               <!-- /.box-header -->
@@ -49,7 +51,7 @@
                       <th>no</th>
                       <th>nama kda</th>
                       <th>Jenis Kda</th>
-                      <th>Temuan</th>
+                      <th>Data Pelengkap</th>
                       <th>Edit</th>
                       <th>Aksi</th>
                     </tr>
@@ -62,14 +64,17 @@
                       @if ($kda->jenis == 1)
                       <td>KDA tanpa temuan</td>
                       <td>Tidak ada temuan</td>
-                      <td><button class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit" onclick="submitUpdate('{{ $kda->id_kda }}')">Edit</button></td>
-                      @else
+                      @elseif ($kda->jenis == 2)
                       <td>KDA dengan temuan</td>
                       <td><button class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-temuan" onclick="temuanupdate('{{ $kda->id_kda }}')">lihat</button></td>
-                      <td><button class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit" onclick="submitUpdate('{{ $kda->id_kda }}')">Edit</button></td>
+                      @elseif ($kda->jenis == 3)
+                      <td>KDA Unaudited</td>
+                      <td><button class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-keterangan" onclick="keteranganupdate('{{ $kda->id_kda }}')">lihat</button></td>
+                      @else
+                      <td>KDA tanpa pengajuan UMK</td>
+                      <td><button class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-keterangan" onclick="keteranganupdate('{{ $kda->id_kda }}')">lihat</button></td>
                       @endif
-{{--                       <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" data-whatever="{{ $kda->id_kda}}">edit
-</button></td> --}}
+                      <td><button class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit" onclick="submitUpdate('{{ $kda->id_kda }}')">Edit</button></td>
                       <td><a href="{{ url('pdf/'.$kda->id_kda) }}"><button>Download</button></a> </td>
                     </tr>
                     @endforeach
@@ -79,25 +84,25 @@
                       <th>no</th>
                       <th>nama kda</th>
                       <th>Jenis Kda</th>
-                      <th>Temuan</th>
+                      <th>Data Pelengkap</th>
                       <th>Edit</th>
                       <th>Aksi</th>
                     </tr>
                   </tfoot>
                     </table>
-</div>
-<!-- /.box-body -->
-</div>
-<!-- /.box -->
-</div>
-<!-- /.col -->
-</div>
-<!-- /.row -->
-</section>
-<!-- /.content -->
-</div>
+                  </div>
+                  <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </section>
+          <!-- /.content -->
+        </div>
 
-<div class="modal fade" id="modal-temuan">
+        <div class="modal fade" id="modal-temuan">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -131,6 +136,49 @@
 
             <div class="modal-footer">
               <button type="button" class="btn btn-default pull-left" data-dismiss="modal" onclick="temuanclose()" >Close</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+          </form>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+  </div>
+  <!-- modal temuan end -->
+
+
+<div class="modal fade" id="modal-keterangan">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Keterangan</h4>
+          <div id="test"></div>
+        </div>
+        <div class="modal-body">
+          <form action="{{url('/keterangan/update')}}" method="POST" id="tambah_keterangan" enctype="multipart/form-data">
+            {{csrf_field()}}
+            <input type="hidden" id="id" name="id">
+            <div class="form-group has-feedback">
+              <input type="text" class="form-control" id="kondisi" name="kondisi" placeholder="Kondisi">
+            </div>
+            <div class="form-group has-feedback">
+              <input type="text" class="form-control" id="kesimpulan" name="kesimpulan" value="{{old('Kesimpulan')}}" placeholder="Kesimpulan">
+            </div>
+            <div class="form-group has-feedback">
+              <input type="text" class="form-control" id="saran" name="saran" value="{{old('saran')}}" placeholder="saran">
+            </div>
+            <div class="form-group has-feedback">
+              <input type="text" class="form-control" id="rekomendasi" name="rekomendasi" value="{{old('rekomendasi')}}" placeholder="rekomendasi">
+            </div>
+            <div class="form-group has-feedback">
+              <input type="text" class="form-control" id="tanggapan" name="tanggapan" value="{{old('tanggapan')}}" placeholder="tanggapan">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
               <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
           </form>
@@ -261,6 +309,31 @@
         }
       });
     }
+
+    keteranganupdate = function(id){
+      $.ajax({
+        url: '/kda/keterangan',
+        type: 'POST',
+        data: {
+          '_token': "{{ csrf_token() }}",
+          'id' : id
+        },
+        error: function() {
+          console.log('Error');
+        },
+        dataType: 'json',
+        success: function(data) {
+          console.log(data);
+          $('#id').val(data.id);
+          $('#kondisi').val(data.kondisi);
+          $('#kesimpulan').val(data.kesimpulan);
+          $('#saran').val(data.saran);
+          $('#rekomendasi').val(data.rekomendasi);
+          $('#tanggapan').val(data.tanggapan);
+
+        }
+      });
+    }
     
     temuanupdate = function(id){
       $.ajax({
@@ -291,24 +364,6 @@
             var keterangan = data1[i]['keterangan'];
             var status = data1[i]['status'];
             var id = data1[i]['id'];
-
-            // if (status) {
-            //   temuansemua = 
-            // `<input type="text" name="kwitansi[${i}]" placeholder="Nomor kwitansi" class="form-control name_list" value= "${kwitansi}" />
-            // <input type="text" name="nominal[${i}]" placeholder="masukkan nominal" class="form-control name_list" value= "${nominal}" />
-            // <input type="text" name="keterangan[${i}]" placeholder="masukkan keterangan" class="form-control name_list" value= "${keterangan}" /> `;
-            //  $("#temuan").append(temuansemua);
-            // }
-            // else
-            // {
-            //   temuansemua= 
-            //   `<input type="text" name="kwitansi[${i}]" placeholder="Nomor kwitansi" class="form-control name_list" value= "${kwitansi}" />
-            // <input type="text" name="nominal[${i}]" placeholder="masukkan nominal" class="form-control name_list" value= "${nominal}" />
-            // <input type="text" name="keterangan[${i}]" placeholder="masukkan keterangan" class="form-control name_list" value= "${keterangan}" /> 
-            //   <input type="checkbox" name="checkbox[]" data-id="${id}" value="${id}" id="checkbox[]">`;
-            //   $("#temuan").append(temuansemua);
-            // }
-
             if (status) {
               temuansemua = 
             `<tr><td name="kwitansi[${i}]">${kwitansi}</td><td name="nominal[${i}]">${nominal}</td><td name="keterangan[${i}]">${keterangan}</td><td>Telah dikonfirmasi</td></tr>`;

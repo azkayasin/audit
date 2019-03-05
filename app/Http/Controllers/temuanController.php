@@ -9,6 +9,7 @@ use App\TagList;
 use App\Temuan;
 use App\kda;
 use App\kda_keterangan;
+use App\kda_data;
 use Validator;
 use DB;
 use PDF;
@@ -78,10 +79,42 @@ class temuanController extends Controller
         $input = $request->all();
         
             $kda= new kda;
-            $kda->unit = $input['unit'][0];
-            $kda->tanggal = $input['tanggal'][0];
+            $kda->unit = $input['unit'];
+            $kda->tanggal = $input['tanggal'];
             $kda->jenis = 1;
             $kda->save();
+
+            $data = new kda_data;
+            $data->kda_id = $kda->id_kda;
+            $data->item1 = $input['item1'];    
+            $data->item1_jum = $input['item1_jum'];
+            $data->item1_nom = $input['item1_nom'];
+            $data->item2 = $input['item2'];
+            $data->item2_jum = $input['item2_jum'];
+            $data->item2_nom = $input['item2_nom'];
+            $data->item3 = $input['item3'];
+            $data->item3_jum = $input['item3_jum'];
+            $data->item3_nom = $input['item3_nom'];
+            $data->item4 = $input['item4'];
+            $data->item4_jum = $input['item4_jum'];
+            $data->item4_nom = $input['item4_nom'];
+            $data->item5 = $input['item5'];
+            $data->item5_jum = $input['item5_jum'];
+            $data->item5_nom = $input['item5_nom'];
+            $data->item6 = $input['item6'];
+            $data->item6_jum = $input['item6_jum'];
+            $data->item6_nom = $input['item6_nom'];
+            $data->item7 = $input['item7'];
+            $data->item7_jum = $input['item7_jum'];
+            $data->item7_nom = $input['item7_nom'];
+            $data->item8 = $input['item8'];
+            $data->item8_jum = $input['item8_jum'];
+            $data->item8_nom = $input['item8_nom'];
+            $data->item9 = $input['item9'];
+            $data->item9_jum = $input['item9_jum'];
+            $data->item9_nom = $input['item9_nom'];
+            $data->save();
+            
             return response()->json(['success'=>'done']);
         
     }
@@ -89,7 +122,6 @@ class temuanController extends Controller
     public function tambahkda2(Request $request)
     {
         $input = $request->all();
-            //print_r($input);
         $rules = [];
 
 
@@ -106,11 +138,44 @@ class temuanController extends Controller
         if ($validator->passes())
         {
             $kda= new kda;
-            $kda->unit = $input['unit'][0];
-            $kda->tanggal = $input['tanggal'][0];
+            $kda->unit = $input['unit'];
+            $kda->tanggal = $input['tanggal'];
             $kda->jenis = 2;
             $kda->save();
             $jumlah = count($input['kwitansi']);
+
+            $data = new kda_data;
+            $data->kda_id = $kda->id_kda;
+            $data->item1 = $input['item1'];    
+            $data->item1_jum = $input['item1_jum'];
+            $data->item1_nom = $input['item1_nom'];
+            $data->item2 = $input['item2'];
+            $data->item2_jum = $input['item2_jum'];
+            $data->item2_nom = $input['item2_nom'];
+            $data->item3 = $input['item3'];
+            $data->item3_jum = $input['item3_jum'];
+            $data->item3_nom = $input['item3_nom'];
+            $data->item4 = $input['item4'];
+            $data->item4_jum = $input['item4_jum'];
+            $data->item4_nom = $input['item4_nom'];
+            $data->item5 = $input['item5'];
+            $data->item5_jum = $input['item5_jum'];
+            $data->item5_nom = $input['item5_nom'];
+            $data->item6 = $input['item6'];
+            $data->item6_jum = $input['item6_jum'];
+            $data->item6_nom = $input['item6_nom'];
+            $data->item7 = $input['item7'];
+            $data->item7_jum = $input['item7_jum'];
+            $data->item7_nom = $input['item7_nom'];
+            $data->item8 = $input['item8'];
+            $data->item8_jum = $input['item8_jum'];
+            $data->item8_nom = $input['item8_nom'];
+            $data->item9 = $input['item9'];
+            $data->item9_jum = $input['item9_jum'];
+            $data->item9_nom = $input['item9_nom'];
+            $data->save();
+
+
             for ($i=0; $i < $jumlah; ++$i) 
             {
 

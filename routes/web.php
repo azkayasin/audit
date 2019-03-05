@@ -14,20 +14,30 @@
 Route::get('/', function () {
 	return view('auth.login');
 });
+//hanya perobaan
+route::get('/cobatemuan/{id}','cobacontroller@cobatemuan');
+
+
+
 
 Auth::routes();
 //summernote form 
-Route::view('/summernote','summernote');
+//Route::('/summernote','summernote');
+Route::get('/summernote','SummernoteController@index');
 Route::view('/summernote2','summernote2');
  
 //summernote store route
 Route::post('/summernote','SummernoteController@store')->name('summernotePersist');
  
 //summernote display route
-Route::get('/summernote_display','SummernoteController@show')->name('summernoteDispay');
+Route::get('/summernote_display','SummernoteController@show')->name('summernoteDisplay');
+Route::put('/summernote/update/{summernote}','SummernoteController@update')->name('summernoteUpdate');
 
-//login dulu
+
+
 Route::get('/data','admincontroller@datamaster')->name('datamaster');
+Route::get('/dashboard','AuthController@dashboard')->name('dashboard');
+Route::get('/uang','admincontroller@uang')->name('uang');
 
 
 //contoh
@@ -49,9 +59,18 @@ Route::get('/pilihkda', 'kdacontroller@pilih');
 Route::get('pilihkda/{id}', 'kdacontroller@formkda');
 
 Route::get('pdf3',  'pdfcontroller@buatpdf3');
-Route::get('pdf/{id}',  'pdfcontrollerontroller@filepdf');
+Route::get('pdf/{id}',  'pdfcontroller@downloadpdf');
+
 Route::get('download',  'pdfcontroller@downloadkdatriwulan');
+//Route::get('download/tahun/{tahun}/triwulan/{i}', 'pdfcontroller@downloadkdatriwulan2')->name('downloadtriwulan');
 Route::get('laporan',  'pdfcontroller@laporan2');
+
+Route::get('/kdatriwulan', 'kdacontroller@triwulan');
+Route::get('download/triwulan/{tahun}/{sesi?}', [
+    'as' => 'downloadtriwulan',
+    'uses' => 'pdfcontroller@downloadkdatriwulanfix',
+]);
+
 
 
 Route::get('/temuan', 'cobacontroller@bulan');
@@ -80,8 +99,6 @@ Route::get('/hak','AuthController@hak')->name('hak');
 
 Route::group(['middleware' => 'admin'], function () {
 	Route::get('/admin','AuthController@home')->name('home1');
-	Route::get('/dashboard','AuthController@dashboard')->name('dashboard');
-	Route::get('/uang','admincontroller@uang')->name('uang');
 });
 
 Route::group(['middleware' => 'member'], function () {

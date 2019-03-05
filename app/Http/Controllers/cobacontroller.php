@@ -15,6 +15,52 @@ use App\kda_keterangan;
 
 class cobacontroller extends Controller
 {
+	public function cobatemuan($id)
+	{
+		$kda = kda::find($id);
+		//print($kda);
+		//echo "<br><br><br>";
+
+		$currentMonth = date('m');
+		$currentYear = date('y');
+		print $currentYear;
+
+		$semuakda = kda::select('id_kda')->where('unit', $kda->unit)
+		->whereRaw("MONTH(tanggal) < 12 AND YEAR(tanggal) =  20{$currentYear}")
+		->get();
+		//print($semuakda);
+		//$kda = DB::table('temuan')->leftjoin('kda','temuan.kda_id','=','kda.id_kda')->get();
+
+
+		$temuan = db::table('temuan')->leftjoin('kda','temuan.kda_id','=','kda.id_kda')->whereIn('kda_id', $semuakda)->orderBy('kda.tanggal')->get();
+		//dd($temuan);
+		$temuan2 = json_decode($temuan);
+		//print $temuan->count();
+		//print_r($temuan2);
+		//dd($temuan2);
+		for ($i=1; $i < 13 ; $i++) { 
+			foreach ($temuan2 as $key => $value) { 
+			//$bulankda = "{$temuan->tanggal}";
+			$month = date("m",strtotime($value->tanggal));
+			//print $month;
+				if ($month == $i) {
+					print $value->tanggal;
+					print "ini bulan {$i}";
+				}
+			
+			
+			}
+		}
+
+		
+
+		//print($temuan);
+
+
+
+		return $temuan;
+
+	}
 	public function bulan()
 	{
 		// $tanggal = kda::select('tanggal')->where('id_kda', 1)->get();
@@ -118,8 +164,6 @@ class cobacontroller extends Controller
 		$kda = kda::find($id);
 		return ($kda);
 	}
-
-
 
 
 }

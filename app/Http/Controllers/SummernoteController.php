@@ -15,7 +15,9 @@ class SummernoteController extends Controller
      */
     public function index()
     {
-        //
+        $summernote = DB::table('summernotes')->where('id', 3)->get();
+        //return $summernote;
+        return view('summernote',compact('summernote'));
     }
 
     /**
@@ -102,7 +104,11 @@ class SummernoteController extends Controller
      */
     public function update(Request $request, Summernote $summernote)
     {
-        //
+
+        $summernote->tipe = $request->tipe;
+        $summernote->content = $request->konten;
+        $summernote->save();
+        return redirect('summernote');
     }
 
     /**

@@ -23,45 +23,69 @@
           <li class="active">Dashboard</li>
         </ol>
       </section>
-      <div class="container">
-        <ul>
-          @foreach( $summernote as $template)
-          <li>{{ $template->tipe }};</li>
-        </ul>
-        <div>
-          <form class="form-horizontal" method="POST" action="{{url('/admin/template/'.$template->id)}}"
-                  enctype="multipart/form-data">
-                {{ method_field('PUT') }}
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Tipe</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="tipe" class="form-control" placeholder="Tipe" value="{{ $template->tipe }}" readonly>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Konten</label>
-                    <div class="col-sm-10">
-                        <textarea id="konten_editor" name="konten" class="form-control summernote"
-                                  placeholder="Konten">{!! $template->content !!}</textarea>
-                    </div>
-                </div>
 
-                <div class="box-footer text-right">
-                    <a href="{{URL::previous()}}" class="btn btn-default">Batal</a>
-                    <button type="submit" class="btn btn-danger">Simpan</button>
-                </div>
-            </form>
-            @endforeach
+      <!-- Main content -->
+      
+    <section class="content">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="box">
+              <div class="box-header">
+                <h4>List Template</h4>
+                  <ul>
+                    @foreach( $summernote as $summernote)
+                    <li>{{ $summernote->tipe }}
+                      <button class="btn btn-xs btn-warning" onclick="summernoteupdate('{{$summernote->id}}')">Edit</button>
+                    </li>
+                    @endforeach
+                  </ul>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <!-- /.content-wrapper -->
-    @include('admin.template.footer')
+    </section>
+    <section class="content">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="box">
+              <div class="box-header">
+                <h4>List coba</h4>
+              </div>
+                  <form class="form-horizontal" method="POST" action="{{url('/summernote/update/'.$summernote->id)}}"
+                      enctype="multipart/form-data" id="fsummernote">
+                    {{ method_field('PUT') }}
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Tipe</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="tipe" class="form-control" placeholder="Tipe" value="{{$summernote->tipe}}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Konten</label>
+                        <div class="col-sm-10">
+                            <textarea id="konten_editor" name="konten" class="form-control summernote"
+                                      placeholder="Konten">woke</textarea>
+                        </div>
+                    </div>
 
-    <!-- Control Sidebar -->
-    @include('admin.template.sidebar-right')
-    <!-- /.control-sidebar -->
+                    <div class="box-footer text-right">
+                        <a href="{{URL::previous()}}" class="btn btn-default">Batal</a>
+                        <button type="submit" class="btn btn-danger">Simpan</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+    </section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+@include('admin.template.footer')
+
+<!-- Control Sidebar -->
+@include('admin.template.sidebar-right')
+<!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
    immediately after the control sidebar -->
    <div class="control-sidebar-bg"></div>
@@ -79,18 +103,18 @@
  <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
  <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>    
  
+
+
 <script type="text/javascript">
-   $(document).ready(function() {
+  $(document).ready(function() {
             //initialize summernote
-            $('.summernote').summernote({
-               tabsize: 2,
-                height: 400
-            });
+            $('.summernote').summernote();
             //assign the variable passed from controller to a JavaScript variable.
-            
+            var content = {!! json_encode($summernote->content) !!};
             //set the content to summernote using `code` attribute.
-            //$('.summernote').summernote('code', content);
+            $('.summernote').summernote('code', content);
         });
+
 </script>
 </body>
 </html>

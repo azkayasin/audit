@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+{{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> --}}
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   @include('admin.template.head')
@@ -36,26 +36,35 @@
               <div class="box-header">
                 <h3 class="box-title">Data Table With Full Features</h3>
               </div>
-                <p>
-                  Jenis KDA : 
-                <select id="table-filter">
-                <option value="">All</option>
-                <option>KDA dengan temuan</option>
-                <option>KDA tanpa temuan</option>
-                <option>KDA Unaudited</option>
-                <option>KDA tanpa pengajuan UMK</option>
-                </select>
-                </p>
-                <p>
-                  Pilih Unit : 
-                <select id="table-filter1">
-                <option value="">All</option>
-                <option>rektorat</option>
-                <option>industri</option>
-                <option>biologi</option>
-                <option>informatika</option>
-                </select>
-                </p>
+              <table cellpadding="3" cellspacing="0" border="0" style="width: 67%; margin: 0 auto 2em auto;">
+                  <thead>
+                      <tr>
+                          <th>Target</th>
+                          <th>Search text</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr id="filter_col1" data-column="1">
+                          <td>Unit</td>
+                          <td align="center"><select class="column_filter" id="col1_filter">
+                              <option></option>
+                              @foreach($unit as $data => $value)
+                               <option value="{{$value->nama}}">{{$value->nama}}</option>
+                               @endforeach
+                            </select></td>
+                      </tr>
+                      <tr id="filter_col2" data-column="2">
+                          <td>Jenis</td>
+                          <td align="center"><select id="col2_filter" class="column_filter">
+                              <option value="">All</option>
+                              <option>KDA tanpa temuan</option>
+                              <option>KDA dengan temuan</option>
+                              <option>KDA Unaudited</option>
+                              <option>KDA tanpa pengajuan UMK</option>
+                              </select></td>
+                      </tr>
+                  </tbody>
+              </table>
               <!-- /.box-header -->
               <div class="box-body">
                 <table id="example1" class="table table-bordered table-striped">
@@ -70,10 +79,11 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach ($kda as $kda)
+                    <?php $i=1;?>
+                    @foreach($kda as $key => $kda)
                     <tr>
-                      <td>{{ $kda->id_kda }}</td>
-                      <td>{{ $kda->nama}}</td>
+                      <td>{{$i++}}</td>
+                      <td>{{ $kda->nama}}-{{$kda->tanggal}}</td>
                       @if ($kda->jenis == 1)
                       <td>KDA tanpa temuan</td>
                       <td>Tidak ada temuan</td>
@@ -273,16 +283,26 @@
 
  <!-- jQuery 3 -->
  @include('admin.template.setting')
+ 
  <script>
+  function filterColumn ( i ) {
+      $('#example1').DataTable().column( i ).search(
+          $('#col'+i+'_filter').val()
+      ).draw();
+  }
   $(document).ready(function (){
-    // var table = $('#example1').DataTable();
-    
-    $('#table-filter').on('change', function(){
-       table.search(this.value).draw();   
+    //var table = $('#example1').DataTable();
+    $('#example1').DataTable();
+
+    $('select.column_filter').on( 'keyup click', function () {
+        filterColumn( $(this).parents('tr').attr('data-column') );
+    } );
+    $('select2').select2(
+    {
+      placeholder: "Pilih Unit",
+      allowClear: true
     });
-    $('#table-filter1').on('change', function(){
-       table.search(this.value).draw();   
-    });
+  
 });
 </script>
 <script>
@@ -435,32 +455,6 @@
     } );
 } );
 </script> --}}
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#example1').DataTable( {
-        initComplete: function () {
-            this.api().columns([1,2]).every( function () {
-                var column = this;
-                var select = $('<select><option value="">Semua</option></select>')
-                    .appendTo( $(column.footer()).empty() )
-                    .on( 'change', function () {
-                        var val = $.fn.dataTable.util.escapeRegex(
-                            $(this).val()
-                        );
- 
-                        column
-                            .search( val ? '^'+val+'$' : '', true, false )
-                            .draw();
-                    } );
-                column.data().unique().sort().each( function ( d, j ) {
-                    select.append( '<option value="'+d+'">'+d+'</option>' )
-                } );
-            } );
-        }
-    } );
-} );
-</script>
-
+<script src="adminlte/bower_components/select2/dist/js/select2.full.min.js"></script>
 </body>
 </html>

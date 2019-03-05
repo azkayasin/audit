@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "83fd80c6e6b6f17e677ad3886c83a57f",
+    "content-hash": "9bbe1ec866d23040f7076578188ec7b4",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",

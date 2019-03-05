@@ -35,7 +35,7 @@
         <br>
         <button type="submit">Submit</button>
     </form> --}}
-    <form class="form-horizontal" method="POST" action="{{route('summernotePersist')}}" enctype="multipart/form-data">
+    {{-- <form class="form-horizontal" method="POST" action="{{route('summernotePersist')}}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Tipe</label>
@@ -56,7 +56,60 @@
                     <button type="submit" class="btn btn-danger">Simpan</button>
                 </div>
             </form>
-    </div>
+    </div> --}}
+
+    <section class="content">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="box">
+              <div class="box-header">
+                <h4>List Template</h4>
+                  <ul>
+                    @foreach( $summernote as $summernote)
+                    <li>{{ $summernote->tipe }}
+                      <button class="btn btn-xs btn-warning" onclick="summernoteupdate('{{$summernote->id}}')">Edit</button>
+                    </li>
+                    @endforeach
+                  </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="box">
+              <div class="box-header">
+                <h4>List coba</h4>
+              </div>
+                  <form class="form-horizontal" method="POST" action="{{url('/summernote/update/'.$summernote->id)}}"
+                      enctype="multipart/form-data" id="fsummernote">
+                    {{ method_field('PUT') }}
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Tipe</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="tipe" class="form-control" placeholder="Tipe" value="{{$summernote->tipe}}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Konten</label>
+                        <div class="col-sm-10">
+                            <textarea id="konten_editor" name="konten" class="form-control summernote"
+                                      placeholder="Konten">{!! $summernote->content !!}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="box-footer text-right">
+                        <a href="{{URL::previous()}}" class="btn btn-default">Batal</a>
+                        <button type="submit" class="btn btn-danger">Simpan</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+    </section>
           <!-- /.content-wrapper -->
           @include('admin.template.footer')
 
@@ -80,13 +133,31 @@
 <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
 <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>  
  
-<script>
-        $(document).ready(function() {
-            $('.summernote').summernote({
-               tabsize: 2,
-                height: 400
-            });
+
+<script type="text/javascript">
+  $(document).ready(function() {
+            //initialize summernote
+            $(".summernote").summernote({
+              styleWithSpan: false,
+              toolbar: [
+              ['style', ['style']],
+              ['font', ['bold', 'italic', 'underline', 'clear']],
+              ['fontname', ['fontname']],
+              ['fontsize', ['fontsize']],
+              ['color', ['color']],
+              ['para', ['ul', 'ol', 'paragraph']],
+              ['height', ['height']],
+              ['table', ['table']],
+              ['insert', ['link', 'picture', 'hr']],
+              ['view', ['fullscreen', 'codeview']],
+              ['help', ['help']]
+            ],
+            tabsize: 2,
+            height: 100
         });
+            $('.note-editable').css('font-size','12px');
+        });
+
 </script>
 
 </body>

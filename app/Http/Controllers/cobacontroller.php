@@ -15,6 +15,36 @@ use App\kda_keterangan;
 
 class cobacontroller extends Controller
 {
+
+	public function panduan()
+	{
+		return view('panduan');
+	}
+	public function getpanduan()
+	{
+        //$kda = DB::table('kda')->get();
+    //     $shares = DB::table('shares')
+    // ->join('users', 'users.id', '=', 'shares.user_id')
+    // ->join('followers', 'followers.user_id', '=', 'users.id')
+    // ->where('followers.follower_id', '=', 3)
+    // ->get();
+
+        // $kda = DB::table('kda')
+        // ->join('unit', 'unit.id_unit', '=', 'kda.unit')
+        // ->join('temuan','temuan.kda_id', '=', 'kda.id_kda')
+        // ->get();
+
+        //$kda = kda::find(2)->namaunit;
+        $kda = kda::with('data');
+
+     //    $kda = kda::with('temuan')
+	    // ->join('unit', 'unit.id_unit', '=', 'kda.unit')
+	    // ->get();
+        //return $kda;
+
+
+		return response()->json($kda);
+	}
 	public function cobatemuan($id)
 	{
 		$kda = kda::find($id);

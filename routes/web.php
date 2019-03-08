@@ -16,20 +16,18 @@ Route::get('/', function () {
 });
 //hanya perobaan
 route::get('/cobatemuan/{id}','cobacontroller@cobatemuan');
+route::get('/panduan','cobacontroller@panduan');
+Route::get('/panduan/data', 'cobacontroller@getpanduan');
+
 
 
 
 
 Auth::routes();
-//summernote form 
-//Route::('/summernote','summernote');
+//summernote
 Route::get('/summernote','SummernoteController@index');
 Route::view('/summernote2','summernote2');
- 
-//summernote store route
 Route::post('/summernote','SummernoteController@store')->name('summernotePersist');
- 
-//summernote display route
 Route::get('/summernote_display','SummernoteController@show')->name('summernoteDisplay');
 Route::put('/summernote/update/{summernote}','SummernoteController@update')->name('summernoteUpdate');
 

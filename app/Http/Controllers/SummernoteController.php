@@ -15,7 +15,7 @@ class SummernoteController extends Controller
      */
     public function index()
     {
-        $summernote = DB::table('summernotes')->where('id', 3)->get();
+        $summernote = DB::table('summernotes')->where('id', 4)->get();
         //return $summernote;
         return view('summernote',compact('summernote'));
     }

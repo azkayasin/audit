@@ -16,7 +16,8 @@ class CreateKdasTable extends Migration
         Schema::create('kda', function (Blueprint $table) {
             $table->increments('id_kda');
             $table->string('unit');
-            $table->date('tanggal');
+            $table->date('masa_audit');
+            $table->date('bulan_audit');
             $table->integer('jenis');
             $table->timestamps();
         });

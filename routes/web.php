@@ -54,6 +54,8 @@ Route::get('/tables', 'admincontroller@tables');
 //Route::get('pdf/{id}',  'temuanController@buatpdf');
 Route::get('/kda', 'kdacontroller@index');
 Route::get('/pilihkda', 'kdacontroller@pilih');
+Route::get('/pilihkda2', 'kdacontroller@pilih2');
+
 Route::get('pilihkda/{id}', 'kdacontroller@formkda');
 
 Route::get('pdf3',  'pdfcontroller@buatpdf3');
@@ -68,13 +70,14 @@ Route::get('download/triwulan/{tahun}/{sesi?}', [
     'as' => 'downloadtriwulan',
     'uses' => 'pdfcontroller@downloadkdatriwulanfix',
 ]);
-
+Route::post('/kda/temuan', 'cobacontroller@gettemuan');
+Route::post('/temuan/temuanlama', 'temuanController@gettemuanlama');
 
 
 Route::get('/temuan', 'cobacontroller@bulan');
 Route::get('/temuan/update', 'cobacontroller@updatetemuan');
 Route::post('/kda/data', 'cobacontroller@getkda');
-Route::post('/kda/temuan', 'cobacontroller@gettemuan');
+
 Route::post('/kda/update', 'cobacontroller@updatekda');
 Route::post('/kda/keterangan', 'cobacontroller@getketerangan');
 Route::post('/keterangan/update', 'cobacontroller@updateketerangan');

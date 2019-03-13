@@ -14,7 +14,8 @@ class kda extends Model
     protected $fillable =[
     'id_kda',
     'unit',
-    'tanggal',
+    'masa_audit',
+    'bulan_audit',
     'jenis',
     ];
 

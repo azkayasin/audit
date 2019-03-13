@@ -129,7 +129,7 @@ class cobacontroller extends Controller
 	{
 
 		$data = $request->all();
-		$kda = kda::find($request->id);
+		$kda = kda::find($request->idkda);
 		//return ($data);
 		$kda->update($data, ['except'=>'_token']);
 		return redirect('/kda');

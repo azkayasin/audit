@@ -123,6 +123,7 @@ class pdfcontroller extends Controller
 	 
 		return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
 	}
+	
 
 	public function filepdf($id)
     {
@@ -130,9 +131,10 @@ class pdfcontroller extends Controller
         $data = DB::table('kda_data')->where('kda_id',$id)->first();
         $temuan = DB::table('temuan')->where('kda_id',$id)->get();
         $ket = DB::table('kda_keterangan')->where('kda_id',$id)->first();
-        $bulan = date("m",strtotime($kda->tanggal));
-        $bulanlalu = date("m",strtotime("{$kda->tanggal} -1 Month"));
-        $tahun = date("y",strtotime($kda->tanggal));
+        $bulan = date("m",strtotime($kda->bulan_audit));
+        $bulanlalu = date("m",strtotime("{$kda->bulan_audit} -1 Month"));
+        $tahun = date("y",strtotime($kda->bulan_audit));
+        // $tahun = $kda->bulan_audit.getFullYear();
         $namabulan = array(
 				                '01' => 'Januari',
 				                '02' => 'Februari',
@@ -148,7 +150,7 @@ class pdfcontroller extends Controller
 				                '12' => 'Desember',
 				        );
   
-        $pdfnama = $kda->id_kda."-".$kda->nama."-".$kda->tanggal.".pdf";
+        $pdfnama = $kda->id_kda."-".$kda->nama."-".$kda->bulan_audit.".pdf";
         if ($kda->jenis == 1)
 				{
 					$summernotes = DB::table('summernotes')->where('id',1)->first();
@@ -162,18 +164,19 @@ class pdfcontroller extends Controller
 					$contents = $view->render();
 					//untuk mencatat temuan sebelumnya (belum kondisi yg status 1)
 					$semuakda = kda::select('id_kda')->where('unit', $kda->unit)
-					->whereRaw(" MONTH(tanggal) < {$bulan}  AND YEAR(tanggal) =  20{$tahun}")
+					->whereRaw(" MONTH(bulan_audit) < {$bulan}  AND YEAR(bulan_audit) =  20{$tahun}")
 					->get();
+					//dd($semuakda);
 					$temuan1 = db::table('temuan')->leftjoin('kda','temuan.kda_id','=','kda.id_kda')->whereIn('kda_id', $semuakda)
 					->where('temuan.status',0)
-					->orderBy('kda.tanggal')->get();
+					->orderBy('kda.bulan_audit')->get();
 					$temuan2 = json_decode($temuan1);
 					$table = '';
 					for ($i=1; $i < 13 ; $i++) { 
 						$temuanawal = 0;
 						foreach ($temuan2 as $key => $value) { 
-						$month = date("m",strtotime($value->tanggal));
-						$bulannama = $namabulan[date("m",strtotime($value->tanggal))];
+						$month = date("m",strtotime($value->bulan_audit));
+						$bulannama = $namabulan[date("m",strtotime($value->bulan_audit))];
 							if ($month == $i) {
 								$temuanawal++;
 								if ($temuanawal == 1)
@@ -242,7 +245,7 @@ class pdfcontroller extends Controller
 				$contents = str_replace("bulanaudit$", "{$namabulan[$bulan]} 20{$tahun}", $contents);
 				$contents = str_replace("bulan$", $namabulan[$bulan], $contents);
 				$contents = str_replace("tahun$", "20{$tahun}", $contents);
-				$tanggalttd = $this->tgl_indo($kda->tanggal);
+				$tanggalttd = $this->tgl_indo($kda->bulan_audit);
 				$contents = str_replace("tanggalttd$", $tanggalttd, $contents);
 
 				if ($data == NULL) {

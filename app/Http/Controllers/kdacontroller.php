@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\kda;
+use App\summernote;
 //require 'vendor/autoload.php';
 
 use Carbon\Carbon;
@@ -13,7 +14,7 @@ class kdacontroller extends Controller
 {
 	public function index()
 	{
-		$kda = DB::table('kda')->leftjoin('unit','kda.unit','=','unit.id_unit')->orderBy('kda.tanggal')->get();
+		$kda = DB::table('kda')->leftjoin('unit','kda.unit','=','unit.id_unit')->orderBy('kda.bulan_audit')->get();
 		//dd($kda);
 		$unit = DB::table('unit')->get();
     	//$kda = DB::table('kda')->get();
@@ -42,6 +43,15 @@ class kdacontroller extends Controller
 
 		$unit = DB::table('unit')->get();
         return view("pilihkda4", compact('unit'));
+
+	}
+	public function pilih2()
+	{
+
+		$unit = DB::table('unit')->get();
+		$summernote = DB::table('summernotes')->where('id','>' ,3)->get();
+		//dd($summernote);
+        return view("pilihkdarevisi", compact('unit','summernote'));
 
 	}
 

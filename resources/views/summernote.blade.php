@@ -69,6 +69,7 @@
                     <li>{{ $summernote->tipe }}
                       <button class="btn btn-xs btn-warning" onclick="summernoteupdate('{{$summernote->id}}')">Edit</button>
                     </li>
+                    
                     @endforeach
                   </ul>
               </div>

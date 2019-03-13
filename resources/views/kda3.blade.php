@@ -83,7 +83,7 @@
                     @foreach($kda as $key => $kda)
                     <tr>
                       <td>{{$i++}}</td>
-                      <td>{{ $kda->nama}}-{{$kda->tanggal}}</td>
+                      <td>{{ $kda->nama}}-{{$kda->bulan_audit}}</td>
                       @if ($kda->jenis == 1)
                       <td>KDA tanpa temuan</td>
                       <td>Tidak ada temuan</td>
@@ -232,7 +232,7 @@
           <div class="modal-body">
             <form action="{{url('/kda/update')}}" method="POST" id="tambah_kda" enctype="multipart/form-data">
               {{csrf_field()}}
-              <input type="hidden" id="id" name="id">
+              <input type="text" id="idkda" name="idkda">
               <div class="form-group has-feedback">
                 <label class="control-label">Nama Unit</label>
                 <input type="text" class="form-control" id="unit" name="unit" value="{{old('unit')}}" placeholder="Nama unit" required>
@@ -251,7 +251,7 @@
                   </div>
                   <div class="form-group has-feedback">
                     <label class="control-label">Tanggal Dibuat</label>
-                    <input type="text" class="form-control" id="datetimepicker" name="tanggal" value="{{old('tanggal')}}" placeholder="Tanggal" required>
+                    <input type="text" class="form-control" id="datetimepicker" name="bulan_audit" value="{{old('bulan_audit')}}" placeholder="Tanggal" required>
                     @if ($errors->has('tanggal'))
                     <div class="alert alert-danger">
                       <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> {{ $errors->first('tanggal') }}</div>
@@ -329,9 +329,6 @@
 <script>
   $(document).ready(function(){
 
-    submitForm = function(){
-      $('#tambah_kda').submit();
-    }
     submitUpdate = function(id){
       $.ajax({
         url: '/kda/data',
@@ -346,10 +343,10 @@
         dataType: 'json',
         success: function(data) {
           console.log(data);
-          $('#id').val(data.id_kda);
+          $('#idkda').val(data.id_kda);
           $('#unit').val(data.unit);
           $('#jenis').val(data.jenis);
-          $('#datetimepicker').val(data.tanggal);
+          $('#datetimepicker').val(data.bulan_audit);
         }
       });
     }

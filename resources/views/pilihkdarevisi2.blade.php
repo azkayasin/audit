@@ -8,14 +8,6 @@
   @include('admin.template.head')
   <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg .tg-puex{font-size:12px;font-family:"Times New Roman", Times, serif !important;;border-color:inherit;text-align:center}
-.tg .tg-lj5e{font-size:12px;font-family:"Times New Roman", Times, serif !important;;border-color:inherit;text-align:center;vertical-align:top}
-.tg .tg-vlyc{font-size:12px;font-family:"Times New Roman", Times, serif !important;;border-color:inherit;text-align:left;vertical-align:top}
-@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;margin: auto 0px;}}</style>
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
     @include('admin.template.header')
@@ -97,7 +89,17 @@
 </script>
 
 <script type="text/javascript">
-  var keterangan1 = `
+  var keterangan1 = `<tr id="krow0">
+                      <td><input type="text" name="kelengkapan[]" placeholder="jenis Kelengkapan" class="form-control name_list" value="Rekap Per Mak" /></td>  
+                      <td><select name="kesediaan[]">
+                        <option value=""></option>
+                        <option value="Ada">Ada</option>
+                        <option value="Tidak Ada">Tidak</option>
+                      </select></td>
+                      <td><input type="text" name="jumlah[]" placeholder="masukkan jumlah" class="form-control name_list" /></td>  
+                      <td><input type="text" name="nom[]" placeholder="masukkan nominal" class="form-control name_list" /></td> 
+                      <td><button type="button" name="remove" id="0" class="btn btn-danger btn_remove1">X</button></td>  
+                    </tr>
                     <tr id="krow1">
                       <td><input type="text" name="kelengkapan[]" placeholder="jenis Kelengkapan" class="form-control name_list" value="Rekap SPJ (urut)" /></td>
                       <td><select name="kesediaan[]">
@@ -187,96 +189,8 @@
                       <td><button type="button" name="remove" id="8" class="btn btn-danger btn_remove1">X</button></td>
                     </tr>`;
 
-var keterangan2 = `
-                    <tr id="k2row1">
-                      <td><input type="text" name="kelengkapan[]" placeholder="jenis Kelengkapan" class="form-control name_list" value="Rekap SPJ (urut)" /></td>
-                      <td><select name="kesediaan[]">
-                        <option value=""></option>
-                        <option value="Ada">Ada</option>
-                        <option value="Tidak Ada">Tidak</option>
-                      </select></td>
-                      <td><input type="text" name="jumlah[]" placeholder="masukkan jumlah" class="form-control name_list" /></td>
-                      <td><input type="text" name="nom[]" placeholder="masukkan nominal" class="form-control name_list" /></td>
-                      <td><button type="button" name="remove" id="1" class="btn btn-danger btn_remove2">X</button></td>
-                    </tr>
-                    <tr id="k2row2">
-                      <td><input type="text" name="kelengkapan[]" placeholder="jenis Kelengkapan" class="form-control name_list" value="Kwitansi di Rekap SPJ" /></td>
-                      <td><select name="kesediaan[]">
-                        <option value=""></option>
-                        <option value="Ada">Ada</option>
-                        <option value="Tidak Ada">Tidak</option>
-                      </select></td>
-                      <td><input type="text" name="jumlah[]" placeholder="masukkan jumlah" class="form-control name_list" /></td>
-                      <td><input type="text" name="nom[]" placeholder="masukkan nominal" class="form-control name_list" /></td>
-                      <td><button type="button" name="remove" id="2" class="btn btn-danger btn_remove2">X</button></td>
-                    </tr>
-                    <tr id="k2row3">
-                      <td><input type="text" name="kelengkapan[]" placeholder="jenis Kelengkapan" class="form-control name_list" value="Fisik kwitansi yang ada" /></td>
-                      <td><select name="kesediaan[]">
-                        <option value=""></option>
-                        <option value="Ada">Ada</option>
-                        <option value="Tidak Ada">Tidak</option>
-                      </select></td>
-                      <td><input type="text" name="jumlah[]" placeholder="masukkan jumlah" class="form-control name_list" /></td>
-                      <td><input type="text" name="nom[]" placeholder="masukkan nominal" class="form-control name_list" /></td>
-                      <td><button type="button" name="remove" id="3" class="btn btn-danger btn_remove2">X</button></td>
-                    </tr>
-                    <tr id="k2row4">
-                      <td><input type="text" name="kelengkapan[]" placeholder="jenis Kelengkapan" class="form-control name_list" value="Kwitansi Yang Ada Temuan" /></td>
-                      <td><select name="kesediaan[]">
-                        <option value=""></option>
-                        <option value="Ada">Ada</option>
-                        <option value="Tidak Ada">Tidak</option>
-                      </select></td>
-                      <td><input type="text" name="jumlah[]" placeholder="masukkan jumlah" class="form-control name_list" /></td>
-                      <td><input type="text" name="nom[]" placeholder="masukkan nominal" class="form-control name_list" /></td>
-                      <td><button type="button" name="remove" id="4" class="btn btn-danger btn_remove2">X</button></td>
-                    </tr>
-                    <tr id="k2row5">
-                      <td><input type="text" name="kelengkapan[]" placeholder="jenis Kelengkapan" class="form-control name_list" value="BA Serah Terima UMK" /></td>
-                      <td><select name="kesediaan[]">
-                        <option value=""></option>
-                        <option value="Ada">Ada</option>
-                        <option value="Tidak Ada">Tidak</option>
-                      </select></td>
-                      <td><input type="text" name="jumlah[]" placeholder="masukkan jumlah" class="form-control name_list" /></td>
-                      <td><input type="text" name="nom[]" placeholder="masukkan nominal" class="form-control name_list" /></td>
-                      <td><button type="button" name="remove" id="5" class="btn btn-danger btn_remove2">X</button></td>
-                    </tr>
-                    <tr id="k2row6">
-                      <td><input type="text" name="kelengkapan[]" placeholder="jenis Kelengkapan" class="form-control name_list" value="BA Rekonsiliasi" /></td>
-                      <td><select name="kesediaan[]">
-                        <option value=""></option>
-                        <option value="Ada">Ada</option>
-                        <option value="Tidak Ada">Tidak</option>
-                      </select></td>
-                      <td><input type="text" name="jumlah[]" placeholder="masukkan jumlah" class="form-control name_list" /></td>
-                      <td><input type="text" name="nom[]" placeholder="masukkan nominal" class="form-control name_list" /></td>
-                      <td><button type="button" name="remove" id="6" class="btn btn-danger btn_remove2">X</button></td>
-                    </tr>
-                    <tr id="k2row7">
-                      <td><input type="text" name="kelengkapan[]" placeholder="jenis Kelengkapan" class="form-control name_list" value="Transaksi Jurnal" /></td>
-                      <td><select name="kesediaan[]">
-                        <option value=""></option>
-                        <option value="Ada">Ada</option>
-                        <option value="Tidak Ada">Tidak</option>
-                      </select></td>
-                      <td><input type="text" name="jumlah[]" placeholder="masukkan jumlah" class="form-control name_list" /></td>
-                      <td><input type="text" name="nom[]" placeholder="masukkan nominal" class="form-control name_list" /></td>
-                      <td><button type="button" name="remove" id="7" class="btn btn-danger btn_remove2">X</button></td>
-                    </tr>
-                    <tr id="k2row8">
-                      <td><input type="text" name="kelengkapan[]" placeholder="jenis Kelengkapan" class="form-control name_list" value="Bukti Setor Saldo" /></td>
-                      <td><select name="kesediaan[]">
-                        <option value=""></option>
-                        <option value="Ada">Ada</option>
-                        <option value="Tidak Ada">Tidak</option>
-                      </select></td>
-                      <td><input type="text" name="jumlah[]" placeholder="masukkan jumlah" class="form-control name_list" /></td>
-                      <td><input type="text" name="nom[]" placeholder="masukkan nominal" class="form-control name_list" /></td>
-                      <td><button type="button" name="remove" id="8" class="btn btn-danger btn_remove2">X</button></td>
-                    </tr>`;
   var jenis_kda;
+  var postURL;
   $("#kda1").hide();
   $("#kda2").hide();
   $("#kda3").hide();
@@ -304,9 +218,10 @@ var keterangan2 = `
       if (pilihan == 1) {
         $('#add_kda1')[0].reset();
         $('#dynamic-added1').remove();
-        $("#keterangan1").empty();
-        $("#keterangan1").append(keterangan1);
+        $(".keterangan1").empty();
+        $(".keterangan1").append(keterangan1);
         jenis_kda = 1 ;
+        postURL = "<?php echo url('tambahkda1'); ?>";
         $('#jenis_kda').val(pilihan);
         $("#kda1").show();
         $("#kda2").hide();
@@ -317,9 +232,10 @@ var keterangan2 = `
       {
         //$('#add_kda2')[0].reset();
         $('#dynamic-added2').remove();
-        $("#keterangan2").empty();
-        $("#keterangan2").append(keterangan2);
+        $(".keterangan1").empty();
+        $(".keterangan1").append(keterangan1);
         jenis_kda = 2 ;
+        postURL = "<?php echo url('tambahkda2'); ?>";
         $('#jenis_kda2').val(pilihan);
         $("#kda2").show();
         $("#kda1").hide();
@@ -330,7 +246,8 @@ var keterangan2 = `
       {
         $('#add_kda3')[0].reset();
         $('#judulform').text('Form Kda tanpa audit');
-          jenis_kda = 3 ;
+        jenis_kda = 3 ;
+        postURL = "<?php echo url('tambahkda3'); ?>";
         $('#jenis_kda'+jenis_kda+'').val(pilihan);
         $("#kda3").show();
         $("#kda4").hide();
@@ -341,6 +258,7 @@ var keterangan2 = `
       {
         $('#add_kda4')[0].reset();
         jenis_kda = 4 ;
+        postURL = "<?php echo url('tambahkda3'); ?>";
         $('#judulform'+jenis_kda+'').text('Form Kda tanpa pengajuan UMK');
         $('#jenis_kda'+jenis_kda+'').val(pilihan);
         $("#kda4").show();
@@ -446,20 +364,13 @@ var keterangan2 = `
       });
       
     });
-
-  var postURL = "<?php echo url('tambahkda3'); ?>";
     $.ajaxSetup({
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       }
     });
 
-   //  $(document).on('click', '.btn_remove2', function(){  
-   //   var button_id = $(this).attr("id");   
-   //   $('#k2row'+button_id+'').remove();  
-   // });
-
-     $('.submitkda3').click(function(){    
+     $('.submitkda').click(function(){    
      $.ajax({  
       url:postURL,  
       method:"POST",  
@@ -494,12 +405,11 @@ var keterangan2 = `
 <script type="text/javascript">
   //document.getElementById('tanggal1').valueAsDate = new Date();
   $(document).ready(function(){      
-    var postURL = "<?php echo url('tambahkda1'); ?>";
     var i=9; 
 
-    $('#add1').click(function(){  
+    $('.add1').click(function(){  
      i++;  
-     $('#keterangan1').append('<tr id="krow'+i+'" class="dynamic-added1"><td><input type="text" name="kelengkapan[]" placeholder="jenis Kelengkapan" class="form-control name_list" /></td><td><select name="kesediaan[]"><option value=""></option><option value="Ada">Ada</option><option value="Tidak Ada">Tidak</option></select></td> <td><input type="text" name="jumlah[]" placeholder="masukkan jumlah" class="form-control name_list" /></td><td><input type="text" name="nom[]" placeholder="masukkan nominal" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove1">X</button></td></tr>');  
+     $('.keterangan1').append('<tr id="krow'+i+'" class="dynamic-added1"><td><input type="text" name="kelengkapan[]" placeholder="jenis Kelengkapan" class="form-control name_list" /></td><td><select name="kesediaan[]"><option value=""></option><option value="Ada">Ada</option><option value="Tidak Ada">Tidak</option></select></td> <td><input type="text" name="jumlah[]" placeholder="masukkan jumlah" class="form-control name_list" /></td><td><input type="text" name="nom[]" placeholder="masukkan nominal" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove1">X</button></td></tr>');  
    });  
 
 
@@ -507,66 +417,13 @@ var keterangan2 = `
      var button_id = $(this).attr("id");   
      $('#krow'+button_id+'').remove();  
    });
-    $.ajaxSetup({
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-    });
-
-
-    $('#submitkda1').click(function(){            
-     $.ajax({  
-      url:postURL,  
-      method:"POST",  
-      data:$('#add_kda1').serialize(),
-      type:'json',
-      success:function(data)  
-      {
-        if(data.error){
-          printErrorMsg(data.error);
-        }else{
-          i=1;
-          $("#kda1").hide();
-          // $('.dynamic-added2').remove();
-          $('#add_kda1')[0].reset();
-          $(".print-success-msg").find("ul").html('');
-          $(".print-success-msg").css('display','block');
-          $(".print-error-msg").css('display','none');
-          $(".print-success-msg").find("ul").append('<li>Record Inserted Successfully.<button type="button" class="close" data-dismiss="alert">×</button></li>');
-        }
-      }  
-    });  
-   });  
-    function printErrorMsg (msg) {
-     $(".print-error-msg").find("ul").html('');
-     $(".print-error-msg").css('display','block');
-     $(".print-success-msg").css('display','none');
-     $.each( msg, function( key, value ) {
-      $(".print-error-msg").find("ul").append('<li>'+value+'</li>');
-    });
-   } 
+     
   });   
 </script>
 
 <script type="text/javascript">
   $(document).ready(function(){      
-    var postURL = "<?php echo url('tambahkda2'); ?>";
-    var j=9; 
-
-    $('#add2').click(function(){  
-     j++;  
-     $('#keterangan2').append('<tr id="k2row'+j+'" class="dynamic-added1"><td><input type="text" name="kelengkapan[]" placeholder="jenis Kelengkapan" class="form-control name_list" /></td><td><select name="kesediaan[]"><option value=""></option><option value="Ada">Ada</option><option value="Tidak Ada">Tidak</option></select></td> <td><input type="text" name="jumlah[]" placeholder="masukkan jumlah" class="form-control name_list" /></td><td><input type="text" name="nom[]" placeholder="masukkan nominal" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+j+'" class="btn btn-danger btn_remove2">X</button></td></tr>');  
-   });  
-
-
-    $(document).on('click', '.btn_remove2', function(){  
-     var button_id = $(this).attr("id");   
-     $('#k2row'+button_id+'').remove();  
-   });
-
-
     var i=1;  
-
 
     $('#add').click(function(){  
      i++;  
@@ -578,46 +435,6 @@ var keterangan2 = `
      var button_id = $(this).attr("id");   
      $('#row'+button_id+'').remove();  
    });  
-
-
-    $.ajaxSetup({
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-    });
-
-
-    $('#submitkda2').click(function(){            
-     $.ajax({  
-      url:postURL,  
-      method:"POST",  
-      data:$('#add_kda2').serialize(),
-      type:'json',
-      success:function(data)  
-      {
-        if(data.error){
-          printErrorMsg(data.error);
-        }else{
-          i=1;
-          $("#kda2").hide();
-          $('.dynamic-added').remove();
-          $('#add_kda2')[0].reset();
-          $(".print-success-msg").find("ul").html('');
-          $(".print-success-msg").css('display','block');
-          $(".print-error-msg").css('display','none');
-          $(".print-success-msg").find("ul").append('<li>Record Inserted Successfully.<button type="button" class="close" data-dismiss="alert">×</button></li>');
-        }
-      }  
-    });  
-   });  
-    function printErrorMsg (msg) {
-     $(".print-error-msg").find("ul").html('');
-     $(".print-error-msg").css('display','block');
-     $(".print-success-msg").css('display','none');
-     $.each( msg, function( key, value ) {
-      $(".print-error-msg").find("ul").append('<li>'+value+'</li>');
-    });
-   }
  });  
 </script>
 

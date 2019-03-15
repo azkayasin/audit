@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             dinas_mahasiswaseeder::class,
             taksiseeder::class,
             unitseeder::class,
+            template_summernote::class,
     	]);
     }
 }

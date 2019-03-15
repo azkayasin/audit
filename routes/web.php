@@ -30,6 +30,7 @@ Route::view('/summernote2','summernote2');
 Route::post('/summernote','SummernoteController@store')->name('summernotePersist');
 Route::get('/summernote_display','SummernoteController@show')->name('summernoteDisplay');
 Route::put('/summernote/update/{summernote}','SummernoteController@update')->name('summernoteUpdate');
+Route::get('/summernote/template','SummernoteController@pilihtemplate')->name('summernotetemplate');
 
 
 
@@ -53,6 +54,8 @@ Route::post('/get/child', 'admincontroller@getChild');
 Route::get('/tables', 'admincontroller@tables');
 //Route::get('pdf/{id}',  'temuanController@buatpdf');
 Route::get('/kda', 'kdacontroller@index');
+Route::get('/templatekda', 'kdacontroller@template');
+
 Route::get('/pilihkda', 'kdacontroller@pilih');
 Route::get('/pilihkda2', 'kdacontroller@pilih2');
 

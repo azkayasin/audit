@@ -30,6 +30,7 @@ class SummernoteController extends Controller
         //
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -120,5 +121,13 @@ class SummernoteController extends Controller
     public function destroy(Summernote $summernote)
     {
         //
+    }
+    public function pilihtemplate(Request $request)
+    {
+        $id = $request->input('id');
+        $summernote = DB::table('summernotes')->where('id', $id)->first();
+
+        return response()->json($summernote);
+        //return $summernote;
     }
 }

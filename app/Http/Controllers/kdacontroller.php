@@ -21,6 +21,13 @@ class kdacontroller extends Controller
     	//return response()->json($kda);
 		return view ("kda3", compact('kda','unit'));
 	}
+	public function template()
+	{
+
+		$summernote = DB::table('summernotes')->get();
+		//dd($summernote);
+        return view("templatekda", compact('summernote'));
+	}
 	public function triwulan()
 	{
 		//$kda = DB::table('kda')->leftjoin('unit','kda.unit','=','unit.id_unit')->get();
@@ -49,9 +56,9 @@ class kdacontroller extends Controller
 	{
 
 		$unit = DB::table('unit')->get();
-		$summernote = DB::table('summernotes')->where('id','>' ,3)->get();
+		$summernote = DB::table('summernotes')->where('id','>' ,4)->get();
 		//dd($summernote);
-        return view("pilihkdarevisi", compact('unit','summernote'));
+        return view("pilihkdarevisi2", compact('unit','summernote'));
 
 	}
 

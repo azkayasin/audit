@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Temuan;
 use App\kda;
 use App\kda_data;
+use App\kda_keterangan2;
 use PDF;
 use DB;
 use Zipper;
@@ -130,6 +131,7 @@ class pdfcontroller extends Controller
         $kda = DB::table('kda')->where('id_kda',$id)->leftjoin('unit','kda.unit','=','unit.id_unit')->first();
         $data = DB::table('kda_data')->where('kda_id',$id)->first();
         $temuan = DB::table('temuan')->where('kda_id',$id)->get();
+        $kda_ket = DB::table('kda_keterangan2')->where('kda_id',$id)->get();
         $ket = DB::table('kda_keterangan')->where('kda_id',$id)->first();
         $bulan = date("m",strtotime($kda->bulan_audit));
         $bulanlalu = date("m",strtotime("{$kda->bulan_audit} -1 Month"));
@@ -248,44 +250,46 @@ class pdfcontroller extends Controller
 				$tanggalttd = $this->tgl_indo($kda->bulan_audit);
 				$contents = str_replace("tanggalttd$", $tanggalttd, $contents);
 
-				if ($data == NULL) {
+				if ($kda_ket == NULL) {
 				}
 				else{
-					$contents = str_replace("item1$", ($data->item1 ? 'Ada' : 'Tidak Ada'), $contents);
-					$contents = str_replace("item1_jum$", $data->item1_jum, $contents);
-					$contents = str_replace("item1_nom$", "Rp. {$data->item1_nom}", $contents);
-
-					$contents = str_replace("item2$", ($data->item2 ? 'Ada' : 'Tidak Ada'), $contents);
-					$contents = str_replace("item2_jum$", $data->item2_jum, $contents);
-					$contents = str_replace("item2_nom$", "Rp. {$data->item2_nom}", $contents);
-
-					$contents = str_replace("item3$", ($data->item3 ? 'Ada' : 'Tidak Ada'), $contents);
-					$contents = str_replace("item3_jum$", $data->item3_jum, $contents);
-					$contents = str_replace("item3_nom$", "Rp. {$data->item3_nom}", $contents);
-
-					$contents = str_replace("item4$", ($data->item4 ? 'Ada' : 'Tidak Ada'), $contents);
-					$contents = str_replace("item4_jum$", $data->item4_jum, $contents);
-					$contents = str_replace("item4_nom$", "Rp. {$data->item4_nom}", $contents);
-
-					$contents = str_replace("item5$", ($data->item5 ? 'Ada' : 'Tidak Ada'), $contents);
-					$contents = str_replace("item5_jum$", $data->item5_jum, $contents);
-					$contents = str_replace("item5_nom$", "Rp. {$data->item5_nom}", $contents);
-
-					$contents = str_replace("item6$", ($data->item6 ? 'Ada' : 'Tidak Ada'), $contents);
-					$contents = str_replace("item6_jum$", $data->item6_jum, $contents);
-					$contents = str_replace("item6_nom$", "Rp. {$data->item6_nom}", $contents);
-
-					$contents = str_replace("item7$", ($data->item7 ? 'Ada' : 'Tidak Ada'), $contents);
-					$contents = str_replace("item7_jum$", $data->item7_jum, $contents);
-					$contents = str_replace("item7_nom$", "Rp. {$data->item7_nom}", $contents);
-
-					$contents = str_replace("item8$", ($data->item8 ? 'Ada' : 'Tidak Ada'), $contents);
-					$contents = str_replace("item8_jum$", $data->item8_jum, $contents);
-					$contents = str_replace("item8_nom$", "Rp. {$data->item8_nom}", $contents);
-
-					$contents = str_replace("item9$", ($data->item9 ? 'Ada' : 'Tidak Ada'), $contents);
-					$contents = str_replace("item9_jum$", $data->item9_jum, $contents);
-					$contents = str_replace("item9_nom$", "Rp. {$data->item9_nom}", $contents);
+					//untuk mencatat kda keterangan2
+					$list_keterangan='';
+					$keterangans = '<table class=="tg">
+								<thead>
+									<th>Kelengkapan</th>
+									<th>Ada/ Tidak Ada</th>
+									<th>Jumlah</th>
+									<th>Nominal</th>
+								</thead>
+								<tbody>
+								<tr></tr>';
+					if ($kda_ket->count() > 0) {
+						foreach ($kda_ket as $kda_ket) {
+						$list_keterangan .=
+									'<tr>
+										<td>'.$kda_ket->kelengkapan.'</td>
+										<td>'.$kda_ket->kesediaan.'</td>
+										<td>'.$kda_ket->jumlah.'</td>
+										<td>Rp. '.$kda_ket->nominal.'</td>
+									</tr>';
+								}
+					$keterangans .= $list_keterangan;
+					$keterangans .= '</tbody>
+							</table>';
+					}
+					else
+					{
+						$keterangans .= '<tr>
+										<td>-</td>
+										<td>-</td>
+										<td>-</td>
+									</tr></tbody>
+							</table>';
+					}
+					
+					$contents = str_replace("kdaketerangan2$", $keterangans, $contents);
+					
 				}
 				//untuk mencatata temuan sekarang
 					$list_temuan='';

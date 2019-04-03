@@ -239,7 +239,8 @@ class temuanController extends Controller
     public function tambahkda3(Request $request)
     {
         $input = $request->all();
-        
+        // print_r($input);
+        // return $input;
             $tanggaltampung = $input['masa_audit'];
             $tanggaltampung .="-01";
 

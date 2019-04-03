@@ -198,7 +198,7 @@
   $(document).ready(function(){
     $("#submitpilih").click(function(){
 
-      var listunit = `<select id="unit" class="unit2 form-control select2" name="unit" required="">
+      var listunit = `<select id="unit" class="unit2" name="unit" required=""  style="width: 15%">>
                       <option></option>
                       @foreach($unit as $data => $value)
                       <option value="{{$value->id_unit}}">{{$value->nama}}</option>
@@ -208,7 +208,7 @@
       // document.getElementById('bulan_audit').valueAsDate = new Date();
       $(function () {
         //Initialize Select2 Elements
-        $('.select2').select2(
+        $('.unit2').select2(
         {
           placeholder: "Pilih Unit",
           allowClear: true
@@ -248,7 +248,7 @@
         $('#judulform').text('Form Kda tanpa audit');
         jenis_kda = 3 ;
         postURL = "<?php echo url('tambahkda3'); ?>";
-        $('#jenis_kda'+jenis_kda+'').val(pilihan);
+        //$('#jenis_kda'+jenis_kda).val(pilihan);
         $("#kda3").show();
         $("#kda4").hide();
         $("#kda2").hide();
@@ -256,22 +256,24 @@
       }
       else
       {
-        $('#add_kda4')[0].reset();
+        //$('#add_kda4')[0].reset();
         jenis_kda = 4 ;
         postURL = "<?php echo url('tambahkda3'); ?>";
         $('#judulform'+jenis_kda+'').text('Form Kda tanpa pengajuan UMK');
-        $('#jenis_kda'+jenis_kda+'').val(pilihan);
+        // $('#jenis_kda'+jenis_kda+'').val(pilihan);
         $("#kda4").show();
         $("#kda3").hide();
         $("#kda2").hide();
         $("#kda1").hide();
       }
-      const monthNames = ["January", "February", "March", "April", "May", "June",
-          "July", "August", "September", "October", "November", "December"
+      const monthNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni",
+          "Juli", "Agustus", "September", "Oktober", "November", "Desember"
         ];
       var tanggal_sekarang = new Date();
       var tanggal_audit = new Date();
       tanggal_audit.setMonth(tanggal_audit.getMonth()-1);
+      var bulan = monthNames[tanggal_audit.getMonth()];
+      var tahun = tanggal_audit.getFullYear();
       var bulan_audit = document.getElementsByClassName("bulan_audit");
       for(var i = 0; i< bulan_audit.length ;i++){
         document.getElementsByClassName("bulan_audit")[i].valueAsDate = tanggal_sekarang;
@@ -279,14 +281,15 @@
       var masa_audit = document.getElementsByClassName("masa_audit");
       for(var i = 0; i< masa_audit.length ;i++){
         document.getElementsByClassName("masa_audit")[i].valueAsDate = tanggal_audit;
+        $('#kondisi1').val("SPJ bulan "+bulan+" tahun "+tahun+" belum diserahkan.");
       }
       var jumlahbulan = document.getElementsByClassName("bulan");
       for(var i = 0; i< jumlahbulan.length ;i++){
-        document.getElementsByClassName("bulan")[i].value = monthNames[tanggal_audit.getMonth()];
+        document.getElementsByClassName("bulan")[i].value = bulan;
       }
       var jumlahtahun = document.getElementsByClassName("tahun");
       for(var i = 0; i< jumlahtahun.length ;i++){
-        document.getElementsByClassName("tahun")[i].value = tanggal_audit.getFullYear();
+        document.getElementsByClassName("tahun")[i].value = tahun;
       }
       
 
@@ -294,6 +297,8 @@
         var isiunit = document.getElementsByClassName("unit");
         for(var i = 0; i< isiunit.length;i++){
           document.getElementsByClassName("unit")[i].value = e.params.data.text;
+          $('#kondisi').val("Unit Kerja : "+e.params.data.text+" pada bulan "+bulan+" tahun "+tahun+ " tidak mencairkan UMK.");
+
         }
         if (pilihan == 2)
         {
@@ -374,7 +379,7 @@
      $.ajax({  
       url:postURL,  
       method:"POST",  
-      data:$('#add_kda'+jenis_kda+'').serialize(),
+      data:$('#add_kda'+jenis_kda).serialize(),
       type:'json',
       success:function(data)  
       {

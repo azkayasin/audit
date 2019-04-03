@@ -134,7 +134,8 @@ class pdfcontroller extends Controller
         $kda_ket = DB::table('kda_keterangan2')->where('kda_id',$id)->get();
         $ket = DB::table('kda_keterangan')->where('kda_id',$id)->first();
         $bulan = date("m",strtotime($kda->bulan_audit));
-        $bulanlalu = date("m",strtotime("{$kda->bulan_audit} -1 Month"));
+        $bulanlalu = date("m",strtotime($kda->masa_audit));
+        // $bulanlalu = date("m",strtotime("{$kda->bulan_audit} -1 Month"));
         $tahun = date("y",strtotime($kda->bulan_audit));
         // $tahun = $kda->bulan_audit.getFullYear();
         $namabulan = array(
@@ -245,7 +246,7 @@ class pdfcontroller extends Controller
 				$contents = str_replace("unit$", $kda->nama, $contents);
 				$contents = str_replace("masaaudit$", "{$namabulan[$bulanlalu]} 20{$tahun}", $contents);
 				$contents = str_replace("bulanaudit$", "{$namabulan[$bulan]} 20{$tahun}", $contents);
-				$contents = str_replace("bulan$", $namabulan[$bulan], $contents);
+				$contents = str_replace("bulan$", $namabulan[$bulanlalu], $contents);
 				$contents = str_replace("tahun$", "20{$tahun}", $contents);
 				$tanggalttd = $this->tgl_indo($kda->bulan_audit);
 				$contents = str_replace("tanggalttd$", $tanggalttd, $contents);

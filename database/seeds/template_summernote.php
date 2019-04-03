@@ -230,33 +230,30 @@ class template_summernote extends Seeder
 
         $template = new Summernote;
         $template->tipe = 'kda tanpa temuan web';
-        $template->content = '<div class="box" id="kda1">
-              <!-- /.box-header -->
-                <div class="box-body">
-                  <div class="form-group">
-                    <h2 align="center">FORM KDA TANPA TEMUAN</h2>  
-                   <form name="add_kda1" id="add_kda1">  
-                    <div class="alert alert-danger print-error-msg" style="display:none">
-                      <ul></ul>
-                    </div>
-                    <!-- <div class="alert alert-success print-success-msg" style="display:none">
+        $template->content = '<div id="kda1" class="box"><!-- /.box-header -->
+<div class="box-body">
+<div class="form-group">
+<h2 align="center">FORM KDA TANPA TEMUAN</h2>
+<form id="add_kda1" name="add_kda1">
+<div class="alert alert-danger print-error-msg" style="display: none;">&nbsp;</div>
+<!-- <div class="alert alert-success print-success-msg" style="display:none">
                       <ul></ul>
                     </div> -->
-                    <p style="text-align: center;"><strong><span style="font-size: 12px;">KERTAS DATA AUDIT</span></strong></p>
-<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold; font-size: 12px;">Unit Kerja</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong><span style="font-size: 12px;">:&nbsp;</span></strong><strong><span style="font-size: 12px;"><p class="listunit"></p></span></strong></p>
-<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Sasaran</span></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">: Pengelolaan Keuangan</span></strong></p>
-<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Masa Audit&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: <input type="month" name="masa_audit" class=" masa_audit"  required="" /> </span></strong></p>
-<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Bulan Audit&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : <input type="date" name="bulan_audit" class=" bulan_audit"  required="" /> </span></strong>&nbsp;</p>
-<div style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Auditor&nbsp; &nbsp; &nbsp; &nbsp;</span></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">:  <input type="text" name="auditor" class="auditor"  value="manusia" readonly="" /></span></strong></div>
-<div style="text-align: left; line-height: 1;"><strong><span style="font-size: 12px;">&nbsp;</span></strong></div>
-<div style="text-align: left; line-height: 1;"><strong><span style="font-size: 12px;">&nbsp;</span></strong></div>
-<div style="text-align: left; line-height: 1;"><strong><span style="font-size: 12px;">Kode Temuan 1.04</span></strong>&nbsp; &nbsp; : Ketidakpatuhan terhadap Peraturan : -</div>
-<div style="text-align: left; line-height: 1;"><strong>Deskripsi Masalah</strong>&nbsp; &nbsp; : -</div>
-<div style="text-align: left; line-height: 1;">&nbsp;</div>
-<div style="text-align: left; line-height: 1;"><span style="font-family: "Times New Roman";"><strong>Uraian</strong></span></div>
-<div style="text-align: left; line-height: 1;"><span style="font-family: "Times New Roman";"><strong>a. Kondisi:</strong></span></div>
+<p style="text-align: center;"><strong><span style="font-size: 12px;">KERTAS DATA AUDIT</span></strong></p>
+<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold; font-size: 12px;">Unit Kerja</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong><span style="font-size: 12px;">:&nbsp;</span></strong><strong><span class="listunit" style="font-size: 12px;"></span></strong></p>
+<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Sasaran&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;: Pengelolaan Keuangan</span></strong></p>
+<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Masa Audit&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: <input class=" masa_audit" name="masa_audit" type="month" /> </span></strong></p>
+<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Bulan Audit&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : <input class=" bulan_audit" name="bulan_audit" type="date" style="width:160px"/> </span></strong>&nbsp;</p>
+<div style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Auditor&nbsp; &nbsp; &nbsp; &nbsp;</span></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">: <input class="auditor" name="auditor" readonly="readonly" type="text" value="manusia"  size="19" /></span></strong></div>
+<div style="text-align: left;"><strong><span style="font-size: 12px;">&nbsp;</span></strong></div>
+<div style="text-align: left;"><strong><span style="font-size: 12px;">&nbsp;</span></strong></div>
+<div style="text-align: left;"><strong>Kode Temuan 1.04</strong>&nbsp; &nbsp; : Ketidakpatuhan terhadap Peraturan : -</div>
+<div style="text-align: left;"><strong>Deskripsi Masalah</strong>&nbsp; &nbsp; : -</div>
+<div style="text-align: left;">&nbsp;</div>
+<div style="text-align: left;"><strong>Uraian</strong></div>
+<div style="text-align: left;"><strong>a. Kondisi:</strong></div>
 <ul>
-<li style="text-align: justify; line-height: 1;">&nbsp; &nbsp; Hasil audit dokumen SPJ diketahui bahwa pengelolaan administrasi keuangan bulan <input type="text" class="bulan" readonly=""> tahun <input type="text" class="tahun" readonly=""> yang dilaksanakan BPP di Unit Kerja : <input type="text" class="unit" readonly=""> sudah tertib.</li>
+<li style="text-align: justify; line-height: 1;">&nbsp; &nbsp; Hasil audit dokumen SPJ diketahui bahwa pengelolaan administrasi keuangan bulan <input class="bulan" readonly="readonly" type="text" /> tahun <input class="tahun" readonly="readonly" type="text" /> yang dilaksanakan BPP di Unit Kerja : <input class="unit" readonly="readonly" type="text" /> sudah tertib.</li>
 </ul>
 <p style="text-align: left; line-height: 1;">&nbsp; &nbsp; &nbsp; &nbsp; <strong>1. Kelengkapan berkas SPJ</strong></p>
 <p style="text-align: left; line-height: 1;"><strong>&nbsp;</strong></p>
@@ -268,7 +265,7 @@ class template_summernote extends Seeder
                               <th>Ada / Tidak Ada</th>
                               <th>Jumlah</th>
                               <th>Nominal</th>
-	<th><button type="button" name="add"  class="add1 btn btn-success">Add More</button></th>
+<th><button type="button" name="add" class="add1 btn btn-success">Add More</button></th>
                             </tr>
                     </thead>
                     <tbody class="keterangan1">
@@ -277,18 +274,23 @@ class template_summernote extends Seeder
 <div class="tg-wrap">&nbsp;</div>
 <div class="tg-wrap">&nbsp; &nbsp; &nbsp; &nbsp; <strong>2. Ketidakpatuhan terhadap aturan yang berlaku</strong></div>
 <div class="tg-wrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-<div class="tg-wrap">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-<div class="tg-wrap"><table class="table table-bordered">
-                      <tr>
-                        <th class="tg-puex">Kwitansi</th>
-                        <th class="tg-puex">Nominal</th>
-                        <th class="tg-lj5e" >Keterangan</th>
-                      </tr>
-                      <tr>
-                        <td class="tg-puex">-</td>
-                        <td class="tg-puex">-</td>
-                        <td class="tg-lj5e" >-</td>
-                      </tr></table></div>
+<div class="tg-wrap">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<div class="tg-wrap">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th class="tg-puex">Kwitansi</th>
+<th class="tg-puex">Nominal</th>
+<th class="tg-lj5e">Keterangan</th>
+</tr>
+<tr>
+<td class="tg-puex">-</td>
+<td class="tg-puex">-</td>
+<td class="tg-lj5e">-</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div class="tg-wrap">&nbsp;</div>
 <p><strong>b. Kriteria</strong></p>
@@ -298,24 +300,22 @@ class template_summernote extends Seeder
 <li style="text-align: justify;">Peraturan Rektor Institut Teknologi Sepuluh Nopember Nomor 6 tahun 2018 tentang <strong>Standar Biaya Institut Teknologi Sepuluh Nopember Tahun Anggaran 2018.</strong></li>
 </ol>
 <p style="text-align: justify;"><strong>c. Kesimpulan</strong></p>
-<p style="text-align: justify;">&nbsp; &nbsp; Pengelolaan administrasi di Unit Kerja : <input type="text" class="unit" readonly=""> sudah sesuai dengan ketentuan yang berlaku</p>
+<p style="text-align: justify;">&nbsp; &nbsp; Pengelolaan administrasi di Unit Kerja : <input class="unit" readonly="readonly" type="text" /> sudah sesuai dengan ketentuan yang berlaku</p>
 <p><strong>d. Rekomendasi</strong></p>
 <p style="text-align: justify;">&nbsp; &nbsp; -</p>
 <p style="text-align: justify;"><strong>e. Saran</strong></p>
 <p style="text-align: justify;">&nbsp; &nbsp; Untuk dipertahankan agar pengelolaan keuangan tetap tertib.</p>
 <p><strong>&nbsp;</strong></p>
 <p><strong>&nbsp;</strong></p>
-<p>Surabaya, <input type="date" class="bulan_audit"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Menyetujui</p>
+<p>Surabaya, <input class="bulan_audit" type="date" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;Menyetujui</p>
 <p>Ka Unit Audit internal Bidang Keuangan,&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Auditan,</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p>Ir. Tony Bambang M.,PGDip&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="text" class="auditor"  value="manusia" readonly="" /></p>
-                    <input type="button" name="submitkda"  class="submitkda btn btn-info" value="Submit" />
-                  </form>  
-                </div> 
-              </div>
-            </div>';
+<p>Ir. Tony Bambang M.,PGDip&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input class="auditor" readonly="readonly" type="text" value="manusia" /></p>
+<input class="submitkda btn btn-info" name="submitkda" type="button" value="Submit" /></form></div>
+</div>
+</div>';
         $template->save();
 
         $template = new Summernote;
@@ -331,20 +331,20 @@ class template_summernote extends Seeder
 <!--         <div class="alert alert-success print-success-msg" style="display:none">
           <ul></ul>
         </div> -->
-        <p style="text-align: center;"><strong><span style="font-size: 12px;">KERTAS DATA AUDIT</span></strong></p>
-<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold; font-size: 12px;">Unit Kerja</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong><span style="font-size: 12px;">:&nbsp;</span></strong><strong><span style="font-size: 12px;"><p class="listunit"></p></span></strong></p>
-<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Sasaran</span></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">: Pengelolaan Keuangan</span></strong></p>
-<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Masa Audit&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: <input class=" masa_audit" name="masa_audit" required="" type="month" /></span></strong></p>
-<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Bulan Audit&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : <input class=" bulan_audit" name="bulan_audit" required="" type="date" /></span></strong></p>
-<p style="text-align: center; line-height: 1;">&nbsp;</p>
-<div style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Auditor&nbsp; &nbsp; &nbsp; &nbsp;</span></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">:<input class="auditor" name="auditor" readonly="readonly" type="text" value="manusia" /></span></strong></div>
-<div style="text-align: left; line-height: 1;"><strong><span style="font-size: 12px;">&nbsp;</span></strong></div>
-<div style="text-align: left; line-height: 1;"><strong><span style="font-size: 12px;">&nbsp;</span></strong></div>
+<p style="text-align: center;"><strong><span style="font-size: 12px;">KERTAS DATA AUDIT</span></strong></p>
+<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold; font-size: 12px;">Unit Kerja</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong><span style="font-size: 12px;">:&nbsp;</span></strong><strong><span class="listunit" style="font-size: 12px;"></span></strong></p>
+<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Sasaran&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;: Pengelolaan Keuangan</span></strong></p>
+<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Masa Audit&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: <input class=" masa_audit" name="masa_audit" type="month" /> </span></strong></p>
+<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Bulan Audit&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : <input class=" bulan_audit" name="bulan_audit" type="date" style="width:160px"/> </span></strong>&nbsp;</p>
+<div style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Auditor&nbsp; &nbsp; &nbsp; &nbsp;</span></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">: <input class="auditor" name="auditor" readonly="readonly" type="text" value="manusia"  size="19" /></span></strong></div>
+<div style="text-align: left;"><strong><span style="font-size: 12px;">&nbsp;</span></strong></div>
+<div style="text-align: left;"><strong><span style="font-size: 12px;">&nbsp;</span></strong></div>
+
 <div style="text-align: left; line-height: 1;"><strong><span style="font-size: 12px;">Kode Temuan 1.04</span></strong>&nbsp; &nbsp; : Ketidakpatuhan terhadap Peraturan : administrasi</div>
 <div style="text-align: left; line-height: 1;"><strong>Deskripsi Masalah</strong>&nbsp; &nbsp; : Pertanggungjawaban pembayaran/ pembelian barang/jasa tidak akuntabel (bukti tidak lengkap/tidak valid)</div>
 <div style="text-align: left; line-height: 1;">&nbsp;</div>
-<div style="text-align: left; line-height: 1;"><span style="font-family: "Times New Roman";"><strong>Uraian</strong></span></div>
-<div style="text-align: left; line-height: 1;"><span style="font-family: "Times New Roman";"><strong>a. Kondisi:</strong></span></div>
+<div style="text-align: left; line-height: 1;"><span style="font-family: 'Times New Roman';"><strong>Uraian</strong></span></div>
+<div style="text-align: left; line-height: 1;"><span style="font-family: 'Times New Roman';"><strong>a. Kondisi:</strong></span></div>
 <ul>
 <li style="text-align: justify; line-height: 1;">&nbsp; &nbsp; Hasil audit dokumen SPJ diketahui bahwa pengelolaan administrasi keuangan bulan <input class="bulan" readonly="readonly" type="text" /> tahun <input class="tahun" readonly="readonly" type="text" /> di Unit Kerja : <input class="unit" readonly="readonly" type="text" /> belum sepenuhnya tertib, antara lain:</li>
 </ul>
@@ -402,7 +402,7 @@ class template_summernote extends Seeder
 <p style="text-align: justify;">&nbsp; &nbsp; (Bisa disampaikan dalam kertas terpisah dan ditandatangani oleh pimpinan Unit Kerja Terkait)</p>
 <p><strong>&nbsp;</strong></p>
 <p><strong>&nbsp;</strong></p>
-<p>Surabaya, <input type="date" class="bulan_audit"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Menyetujui</p>
+<p>Surabaya, <input class="bulan_audit" type="date" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;Menyetujui</p>
 <p>Ka Unit Audit internal Bidang Keuangan,&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Auditan,</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -414,7 +414,8 @@ class template_summernote extends Seeder
     </div> 
   </div>
 </div>
-</div>';
+</div>
+';
         $template->save();
 
         $template = new Summernote;
@@ -422,48 +423,49 @@ class template_summernote extends Seeder
         $template->content = '<div class="box" id="kda3">
   <div class="box-body">
     <div class="form-group">
-      <h2 align="center" id="judulform">FORM KDA 3 dan 4</h2>  
-     <form name="add_kda3" id="add_kda3">  
+      <h2 align="center" id="judulform">FORM KDA 3 dan 4</h2>
+       <form name="add_kda3" id="add_kda3">
       <div class="alert alert-danger print-error-msg" style="display:none">
         <ul></ul>
       </div>
       <div class="alert alert-success print-success-msg" style="display:none">
         <ul></ul>
       </div>
-      <p style="text-align: center;"><strong>KERTAS DATA AUDIT</strong></p>
-<p style="text-align: center;"><strong>&nbsp;</strong></p>
-<div style="text-align: justify;"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>U</strong><span style="font-weight: 400; text-align: left; font-family: "Times New Roman";"><strong>nit Kerja</strong></span><span style="font-weight: 400; text-align: left;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>&nbsp; &nbsp;<span style="font-weight: 400; text-align: left;">: </span><strong><p class="listunit"></p></strong></strong></div>
-<div style="text-align: justify;"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="text-align: left;">Sasaran</strong><span style="text-align: left; font-weight: 400;">&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="text-align: left;">&nbsp; &nbsp; </span><span style="text-align: left; font-weight: 400;">: </span><strong style="text-align: left;">Pengelolaan Keuangan</strong></strong></div>
-<div style="text-align: justify;"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="text-align: left;">Masa Audit</strong><span style="text-align: left; font-weight: 400;">&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="text-align: left;">&nbsp; &nbsp;&nbsp;</span><span style="text-align: left; font-weight: 400;">:&nbsp;</span></strong><span style="font-family: "Times New Roman";"><strong><input class=" masa_audit" name="masa_audit" required="" type="month" /></strong></span></div>
-<div style="text-align: justify;"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="text-align: left;">Bulan Audit&nbsp;</strong><span style="text-align: left; font-weight: 400;">&nbsp; &nbsp; &nbsp;</span><span style="text-align: left;">&nbsp; &nbsp;&nbsp;</span><span style="text-align: left; font-weight: 400;">:&nbsp;</span></strong><strong><input class=" bulan_audit" name="bulan_audit" required="" type="date" /></strong></div>
-<div style="text-align: justify;"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="text-align: left;">Auditor</strong><span style="text-align: left; font-weight: 400;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="text-align: left;">&nbsp;&nbsp;&nbsp;</span><span style="text-align: left; font-weight: 400;">: </span><strong style="text-align: left;"><input class="auditor" name="auditor" readonly="readonly" type="text" value="manusia" /></strong></strong></div>
-<p>&nbsp;</p>
+<p style="text-align: center;"><strong><span style="font-size: 12px;">KERTAS DATA AUDIT</span></strong></p>
+<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold; font-size: 12px;">Unit Kerja</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong><span style="font-size: 12px;">:&nbsp;</span></strong><strong><span class="listunit" style="font-size: 12px;"></span></strong></p>
+<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Sasaran&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;: Pengelolaan Keuangan</span></strong></p>
+<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Masa Audit&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: <input class=" masa_audit" name="masa_audit" type="month" /> </span></strong></p>
+<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Bulan Audit&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : <input class=" bulan_audit" name="bulan_audit" type="date" style="width:160px"/> </span></strong>&nbsp;</p>
+<div style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Auditor&nbsp; &nbsp; &nbsp; &nbsp;</span></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">: <input class="auditor" name="auditor" readonly="readonly" type="text" value="manusia"  size="19" /></span></strong></div>
+<div style="text-align: left;"><strong><span style="font-size: 12px;">&nbsp;</span></strong></div>
+<div style="text-align: left;"><strong><span style="font-size: 12px;">&nbsp;</span></strong></div>
 <p style="text-align: justify;"><strong>Temuan</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Pengelolaan keuangan tidak tertib</p>
-<p style="text-align: justify;"><span style="font-family: "Times New Roman";"><strong>Deskripsi Masalah</strong></span>&nbsp; &nbsp; &nbsp; :&nbsp;Penyerahan berkas SPJ</p>
+<p style="text-align: justify;"><span style="font-family: " times="" new="" roman";"=""><strong>Deskripsi Masalah</strong></span>&nbsp; &nbsp; &nbsp; :&nbsp;Penyerahan berkas SPJ</p>
 <p><strong>Uraian</strong></p>
-<p><input id="jenis_kda3" class="jenis_kda3 form-control name_list" name="jenis_kda3" type="hidden" /></p>
+<p><input id="jenis_kda3" class="jenis_kda3 form-control name_list" name="jenis_kda3" type="hidden" value="3" /></p>
 <p><strong>a. Kondisi:</strong></p>
-<p>&nbsp; &nbsp;&nbsp; <input id="kondisi" class="form-control name_list" name="kondisi" type="textarea" placeholder="Deskrips Kondisi" /></p>
+<p>&nbsp; &nbsp;&nbsp; <input id="kondisi1" class="form-control name_list" name="kondisi" type="text" placeholder="Deskripsi Kondisi"></p>
 <p><strong>b. Kriteria:</strong></p>
 <p style="text-align: justify;">&nbsp; &nbsp;&nbsp;1.&nbsp; &nbsp;&nbsp;Peraturan Rektor Institut Teknologi Sepuluh Nopember Nomor 7 tahun 2018 tentang <strong>Perubahan atas Peraturan Rektor Nomor 6 Tahun 2017 </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>tentang Pedoman Pengelolaan Keuangan Institut Teknologi Sepuluh Nopember.</strong></p>
 <p><strong>c. Kesimpulan :</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="kesimpulan" name="kesimpulan" placeholder="Deskripsi Kesimpulan" class="form-control name_list" /> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="kesimpulan" name="kesimpulan" placeholder="Deskripsi Kesimpulan" class="form-control name_list" value="-"> </p>
 <p><strong>d. Saran :</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="saran" name="saran" placeholder="Deskripsi Saran" class="form-control name_list" /> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="saran" name="saran" placeholder="Deskripsi Saran" class="form-control name_list" value="Berkas SPJ agar diserahkan ke Kantor Audit Internal ITS paling lambat tanggal 20 setelah bulan berjalan, melewati tanggal tersebut berkas SPJ dinyatakan Unaudited."> </p>
 <p><strong>e. Rekomendasi :</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="rekomendasi" name="rekomendasi" placeholder="Deskripsi Rekomendasi" class="form-control name_list" /> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="rekomendasi" name="rekomendasi" placeholder="Deskripsi Rekomendasi" class="form-control name_list" value="Untuk melaksanakan tertib administrasi dengan SPJ tepat waktu."> </p>
 <p><strong>f. Tanggapan :</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="tanggapan" name="tanggapan" placeholder="Deskripsi Tanggapan" class="form-control name_list" /> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="tanggapan" name="tanggapan" placeholder="Deskripsi Tanggapan" class="form-control name_list" value="(bisa disampaikan dalam kertas terpisah dan ditandatangani oleh pimpinan Unit Kerja Terkait)"> </p>
 <p>&nbsp;</p>
-<p>Surabaya, <input class=" bulan_audit" name="bulan_audit" required="" type="date" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Menyetujui</p>
+<p>Surabaya, <input class="bulan_audit" type="date" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Menyetujui</p>
 <p>Kepala Kantor Audit Internal,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Auditan,</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p><strong>Ir. Mutiah Salamah Chamid., M.Kes</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input class="auditor" name="auditor" readonly="readonly" type="text" value="manusia" /> </p>
+<p><strong>Ir. Mutiah Salamah Chamid., M.Kes</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input class="auditor" name="auditor" readonly="readonly" type="text" value="manusia"> </p>
 <p>&nbsp;</p>
 
-      <input type="button" name="submitkda"  class="submitkda btn btn-info" value="Submit" />
-    </form>  
+      <input type="button" name="submitkda" class="submitkda btn btn-info" value="Submit">
+</form>
+      
   </div>
 </div>
 </div>';
@@ -482,39 +484,40 @@ class template_summernote extends Seeder
       <div class="alert alert-success print-success-msg" style="display:none">
         <ul></ul>
       </div>
-      <p style="text-align: center;"><strong>KERTAS DATA AUDIT</strong></p>
-<p style="text-align: center;"><strong>&nbsp;</strong></p>
-<div style="text-align: justify;"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>U</strong><span style="font-weight: 400; text-align: left; font-family: "Times New Roman";"><strong>nit Kerja</strong></span><span style="font-weight: 400; text-align: left;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>&nbsp; &nbsp;<span style="font-weight: 400; text-align: left;">: </span><strong><p class="listunit"></p></strong></strong></div>
-<div style="text-align: justify;"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="text-align: left;">Sasaran</strong><span style="text-align: left; font-weight: 400;">&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="text-align: left;">&nbsp; &nbsp; </span><span style="text-align: left; font-weight: 400;">: </span><strong style="text-align: left;">Pengelolaan Keuangan</strong></strong></div>
-<div style="text-align: justify;"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="text-align: left;">Masa Audit</strong><span style="text-align: left; font-weight: 400;">&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="text-align: left;">&nbsp; &nbsp;&nbsp;</span><span style="text-align: left; font-weight: 400;">:&nbsp;</span></strong><span style="font-family: "Times New Roman";"><strong><input class=" masa_audit" name="masa_audit" required="" type="month" /></strong></span></div>
-<div style="text-align: justify;"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="text-align: left;">Bulan Audit&nbsp;</strong><span style="text-align: left; font-weight: 400;">&nbsp; &nbsp; &nbsp;</span><span style="text-align: left;">&nbsp; &nbsp;&nbsp;</span><span style="text-align: left; font-weight: 400;">:&nbsp;</span></strong><strong><input class=" bulan_audit" name="bulan_audit" required="" type="date" /></strong></div>
-<div style="text-align: justify;"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="text-align: left;">Auditor</strong><span style="text-align: left; font-weight: 400;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="text-align: left;">&nbsp;&nbsp;&nbsp;</span><span style="text-align: left; font-weight: 400;">: </span><strong style="text-align: left;"><input class="auditor" name="auditor" readonly="readonly" type="text" value="manusia" /></strong></strong></div>
-<p>&nbsp;</p>
+<p style="text-align: center;"><strong><span style="font-size: 12px;">KERTAS DATA AUDIT</span></strong></p>
+<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold; font-size: 12px;">Unit Kerja</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong><span style="font-size: 12px;">:&nbsp;</span></strong><strong><span class="listunit" style="font-size: 12px;"></span></strong></p>
+<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Sasaran&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;: Pengelolaan Keuangan</span></strong></p>
+<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Masa Audit&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: <input class=" masa_audit" name="masa_audit" type="month" /> </span></strong></p>
+<p style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Bulan Audit&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : <input class=" bulan_audit" name="bulan_audit" type="date" style="width:160px"/> </span></strong>&nbsp;</p>
+<div style="text-align: left; line-height: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">Auditor&nbsp; &nbsp; &nbsp; &nbsp;</span></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="font-size: 12px;">: <input class="auditor" name="auditor" readonly="readonly" type="text" value="manusia"  size="19" /></span></strong></div>
+<div style="text-align: left;"><strong><span style="font-size: 12px;">&nbsp;</span></strong></div>
+<div style="text-align: left;"><strong><span style="font-size: 12px;">&nbsp;</span></strong></div>
+
 <p style="text-align: justify;"><strong>Temuan</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;-</p>
 <p style="text-align: justify;"><span style="font-family: "Times New Roman";"><strong>Deskripsi Masalah</strong></span>&nbsp; &nbsp; &nbsp; :&nbsp;-</p>
 <p><strong>Uraian</strong></p>
-<p><input id="jenis_kda4" class="jenis_kda3 form-control name_list" name="jenis_kda3" type="hidden" /></p>
+<p><input id="jenis_kda4" class="jenis_kda3 form-control name_list" name="jenis_kda3" type="hidden" value="4" /></p>
 <p><strong>a. Kondisi:</strong></p>
-<p>&nbsp; &nbsp;&nbsp; <input id="kondisi" class="form-control name_list" name="kondisi" type="textarea" placeholder="Deskrips Kondisi" /></p>
+<p>&nbsp; &nbsp;&nbsp; <input id="kondisi" class="form-control name_list" name="kondisi" type="textarea" placeholder="Deskripsi Kondisi" /></p>
 <p><strong>b. Kriteria:</strong></p>
 <p style="text-align: justify;">&nbsp; &nbsp;&nbsp;1.&nbsp; &nbsp;&nbsp;Peraturan Rektor Institut Teknologi Sepuluh Nopember Nomor 7 tahun 2018 tentang <strong>Perubahan atas Peraturan Rektor Nomor 6 Tahun 2017 </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>tentang Pedoman Pengelolaan Keuangan Institut Teknologi Sepuluh Nopember.</strong></p>
 <p><strong>c. Kesimpulan :</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="kesimpulan" name="kesimpulan" placeholder="Deskripsi Kesimpulan" class="form-control name_list" /> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="kesimpulan" name="kesimpulan" placeholder="Deskripsi Kesimpulan" class="form-control name_list" value="-"/> </p>
 <p><strong>d. Saran :</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="saran" name="saran" placeholder="Deskripsi Saran" class="form-control name_list" /> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="saran" name="saran" placeholder="Deskripsi Saran" class="form-control name_list" value="-"/> </p>
 <p><strong>e. Rekomendasi :</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="rekomendasi" name="rekomendasi" placeholder="Deskripsi Rekomendasi" class="form-control name_list" /> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="rekomendasi" name="rekomendasi" placeholder="Deskripsi Rekomendasi" class="form-control name_list" value="-"/> </p>
 <p><strong>f. Tanggapan :</strong></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="tanggapan" name="tanggapan" placeholder="Deskripsi Tanggapan" class="form-control name_list" /> </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="tanggapan" name="tanggapan" placeholder="Deskripsi Tanggapan" class="form-control name_list"  value="-"/> </p>
 <p>&nbsp;</p>
-<p>Surabaya, <input class=" bulan_audit" name="bulan_audit" required="" type="date" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Menyetujui</p>
+<p>Surabaya, <input class="bulan_audit" type="date" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Menyetujui</p>
 <p>Kepala Kantor Audit Internal,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Auditan,</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p><strong>Ir. Mutiah Salamah Chamid., M.Kes</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input class="auditor" name="auditor" readonly="readonly" type="text" value="manusia" /> </p>
+<p><strong>Ir. Mutiah Salamah Chamid., M.Kes</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input class="auditor" name="auditor" readonly="readonly" type="text" value="manusia" /> </p>
 <p>&nbsp;</p>
 
-      <input type="button" name="submitkda"  class="submitkda btn btn-info" value="Submit" />
+  <input class="submitkda btn btn-info" name="submitkda" type="button" value="Submit" />
     </form>  
   </div>
 </div>

@@ -121,8 +121,6 @@ class cobacontroller extends Controller
 	{
 		$id = $request->input('id');
 		$kda = kda::find($id);
-        //$kda = DB::table('kda')->whereIn('id_kda', $id)->get();
-        //return ($kda);
 		return response()->json($kda);
 	}
 	public function updatekda(Request $request)
